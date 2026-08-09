@@ -2,7 +2,8 @@
 Helper module to centralize the access to Gemini calls so that they are also tracked
 """
 
-from fastapi import logger
+import logging
+
 from google import genai
 from google.genai import types
 
@@ -12,6 +13,8 @@ from model.usage import Usage
 
 
 gemini_client = get_gemini_client()
+
+logger = logging.getLogger(__name__)
 
 def embed(contents:str, model = "gemini-embedding-001") -> list[float]:
 

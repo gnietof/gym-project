@@ -2,10 +2,13 @@
 Helper module to centralize the access to Groq calls so that they are also tracked
 """
 
+import logging
+
 from common.ai.clients import get_groq_client
 from common.db.dependencies import SessionLocal
 from model.usage import Usage
-from config_log import logger
+
+logger = logging.getLogger(__name__)
 
 groq_client = get_groq_client()
 
@@ -17,6 +20,8 @@ def create(messages: list[dict],model: str,tag= "",tools = []) -> any:
       tools = tools,
       temperature = 0.2
     )
+
+    answer = response.choices[0].message.content
   except Exception as e:
     logger.info(f"Exception while calling LLM create: {e}")
 
@@ -38,9 +43,12 @@ def create(messages: list[dict],model: str,tag= "",tools = []) -> any:
       )
       session.add(usage)
       session.commit()
+      session.refresh(usage)
+
+      track = usage.track
 
   except Exception as e:
     logger.info(f"Exception while storing LLM call in database: {e}")
 
-  return response.choices[0].message.content
+  return answer,track
 

@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 
+import logging
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +11,9 @@ from fastapi.templating import Jinja2Templates
 from chat.routes import router as chat_router
 from filter.routes import router as api_router
 from usage.routes import router as usage_router
-from config_log import logger
+import config_log
+
+logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

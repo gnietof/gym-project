@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gym Assistant (Dashboard)</title>
+    <title>Gym Assistant (Performance)</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,32 +18,25 @@
 
   <body>
     <div id="nav-placeholder" data-tab=""welcome"></div>    
-    <div class="row flex-grow-1 g-3 mb-3">
-        <div class="col-md-6">    
-          <canvas id="total_tokens"></canvas>
-        </div>
-        <div class="col-md-6">    
-          <canvas id="detail_tokens"></canvas>
-        </div>
-    </div>
     <div class="row flex-grow-1 g-3">
         <div class="col-md-6">    
-          <canvas id="model_tokens"></canvas>
+          <canvas id="model_scores"></canvas>
+        </div>
+        <div class="col-md-6">    
+          <canvas id="scores"></canvas>
         </div>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
-        const response = await fetch("/usage/tokens", {
+        const response = await fetch("/usage/scores", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
-
         const data = await response.json();
-        total_tokens("total_tokens", data);
-        detail_tokens("detail_tokens", data);
-        model_tokens("model_tokens", data);
+        model_scores("model_scores", data);
+        scores("scores", data);
       });
 
     </script>

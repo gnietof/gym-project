@@ -34,39 +34,6 @@ body {
   color: #000 !important;
 }
 
-.btn-check:checked + .btn-outline-primary {
-  background-color: #f27d00 !important;
-  border-color: #f27d00 !important;
-  color: #000 !important;
-}
-
-.btn-outline-primary:hover {
-  border-color: #f27d00 !important;
-  background-color: #f8f9fa !important;
-  box-shadow: none !important;
-}
-
-.btn-outline-primary {
-  border-color: #6c757d;
-  color: #6c757d;
-}
-
-.btn-custom {
-  --bs-btn-color: #000;
-  --bs-btn-bg: #f27d00;
-  --bs-btn-border-color: #f27d00;
-
-  /* Hover states */
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #c66a00;
-  --bs-btn-hover-border-color: #c66a00;
-
-  /* Active/Pressed states */
-  --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #c66a00;
-  --bs-btn-active-border-color: #c66a00;
-}
-
 .data-table {
   overflow: auto;
   height: calc(100vh - var(--data-margin, 150px));
@@ -89,82 +56,6 @@ body {
   background-color: #e0e0e0;
 }
 
-.col-5p,
-.col-10p,
-.col-15p,
-.col-20p,
-.col-25p,
-.col-30p,
-.col-35p,
-.col-40p,
-.col-45p,
-.col-50p,
-.col-60p,
-.col-65p,
-.col-90p {
-  position: relative;
-  min-height: 1px;
-  padding-right: 8px;
-  padding-left: 8px;
-  /*     float: left; */
-}
-
-.col-5p {
-  width: 5%;
-}
-
-.col-10p {
-  width: 10%;
-}
-
-.col-15p {
-  width: 15%;
-}
-
-.col-16p {
-  width: 16%;
-}
-
-.col-20p {
-  width: 20%;
-}
-
-.col-25p {
-  width: 25%;
-}
-
-.col-30p {
-  width: 30%;
-}
-
-.col-35p {
-  width: 30%;
-}
-
-.col-40p {
-  width: 40%;
-}
-
-.col-45p {
-  width: 45%;
-}
-
-.col-50p {
-  width: 50%;
-}
-
-.col-60p {
-  width: 60%;
-}
-
-.col-65p {
-  width: 65%;
-}
-
-.col-90p {
-  width: 90%;
-}
-
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -173,7 +64,6 @@ body {
   background-color: #efeae2; /* WhatsApp background look */
 }
 
-/* Base message bubble styles */
 .message {
   max-width: 60%;
   padding: 8px 12px;
@@ -181,13 +71,11 @@ body {
   font-family: sans-serif;
 }
 
-/* Left Aligned (Incoming / Friend) */
 .message.left {
   align-self: flex-start;
   background-color: #ffffff;
 }
 
-/* Right Aligned (Outgoing / You) */
 .message.right {
   align-self: flex-end;
   background-color: #d9fdd3; /* WhatsApp light green look */

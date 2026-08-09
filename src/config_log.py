@@ -1,15 +1,23 @@
 import logging
+from logging.handlers import RotatingFileHandler
 import sys
 
-# Define the log format
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+console_handler = logging.StreamHandler(sys.stdout)
+
+file_handler = RotatingFileHandler(
+  "app_events.log", 
+  maxBytes=5_000_000, 
+  backupCount=3,
+  encoding="utf-8"
+)
 
 # Configure the root logger to output to the console
 logging.basicConfig(
-    level=logging.INFO,
-    format=LOG_FORMAT,
-    handlers=[logging.StreamHandler(sys.stdout)]
+  level=logging.INFO,
+  format=log_format,
+  handlers=[console_handler, file_handler]
 )
 
-# Create a specific logger instance for your application
-logger = logging.getLogger("gym-project")
+

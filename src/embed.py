@@ -1,6 +1,6 @@
 import asyncio
+import logging
 
-from fastapi import logger
 from sqlalchemy import select
 
 # from google import genai
@@ -13,7 +13,7 @@ from common.db.database import SessionLocal
 from services.gemini import embed
 from services.groq import create
 
-# groq_client = get_groq_client()
+logger = logging.getLogger(__name__)
 
 async def generate_emebddings():
 
@@ -29,13 +29,6 @@ async def generate_emebddings():
     updated_count =0
     for activity in activities:
       try:
-        # response = get_gemini_client().models.embed_content(
-        #   model="gemini-embedding-001",
-        #   contents=activity.full_description,
-        #   config=types.EmbedContentConfig(output_dimensionality=1536)
-        # )
-        # embedding_vector=response.embeddings[0].values
-
         activity.embedding = embed(activity.full_description)
         updated_count +=1
       except Exception as e:

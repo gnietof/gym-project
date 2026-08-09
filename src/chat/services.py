@@ -1,11 +1,25 @@
-from fastapi import logger
+import logging
+
 from sqlalchemy import select
 
 from model.activity import Activity
 from services.gemini import embed
 from services.groq import create
 
+from model.usage import Usage
+
 LLAMA31_8B = "llama-3.1-8b-instant"
+
+logger = logging.getLogger(__name__)
+
+async def score_answer(track: str, mode:str, db: any):
+  usage = db.query(Usage).filter(Usage.track==track).first();
+  if usage:
+    usage.score = "U" if mode == "up" else ("D" if mode =="down" else "")
+    db.commit()
+    logger.info(f"Track {track} score added.")
+  else: 
+    logger.info(f"Track {track} not found for scoring!")
 
 async def ask_question(question: str, db: any, model=LLAMA31_8B) -> str:
   activities = _semantic_search(db,question)
@@ -33,9 +47,9 @@ async def ask_question(question: str, db: any, model=LLAMA31_8B) -> str:
   ]
 
   try: 
-    answer = create(messages,model,"gym_assistant",[])
+    answer,track = create(messages,model,"gym_assistant",[])
     # logger.debug(f"\nQUESTION: {question}\nANSWER: {answer}\n")
-    return answer
+    return answer,track
 
   except Exception as e:
     # logger.error(f"An exception occurred when generating the LLM answer: {e}")

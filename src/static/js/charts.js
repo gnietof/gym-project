@@ -6,6 +6,70 @@ const baseColors = [
   { dark: "#9467bd", light: "#c5b0d5" }, // Purple
   { dark: "#8c564b", light: "#c49c94" }, // Brown
 ];
+const green = "#008000";
+const red = "#800000";
+
+function total_requests(container, data) {
+  const aggregation = {};
+  data.forEach((item) => {
+    const date = item.timestamp.split("T")[0];
+
+    if (!aggregation[date]) {
+      aggregation[date] = 0;
+    }
+
+    aggregation[date] += 1;
+  });
+
+  const labels = Object.keys(aggregation).sort();
+
+  const color = baseColors[0];
+  const totalData = labels.map((date) => {
+    return aggregation[date] ? aggregation[date] : 0;
+  });
+
+  const datasets = [
+    {
+      label: "(Total)",
+      data: totalData,
+      backgroundColor: color.dark,
+    },
+  ];
+
+  new Chart(container, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: datasets,
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Total requests by day",
+        },
+        tooltip: {
+          mode: "index",
+          intersect: false,
+        },
+      },
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          stacked: false,
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Requests",
+          },
+        },
+      },
+    },
+  });
+}
 
 function total_tokens(container, data) {
   const aggregation = {};
@@ -62,17 +126,17 @@ function total_tokens(container, data) {
           intersect: false,
         },
       },
-    },
-    scales: {
-      x: {
-        stacked: false,
-      },
-      y: {
-        stacked: false,
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: "Tokens",
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          stacked: false,
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Tokens",
+          },
         },
       },
     },
@@ -151,17 +215,17 @@ function detail_tokens(container, data) {
           intersect: false,
         },
       },
-    },
-    scales: {
-      x: {
-        stacked: false,
-      },
-      y: {
-        stacked: false,
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: "Tokens",
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          stacked: true,
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Tokens",
+          },
         },
       },
     },
@@ -198,7 +262,7 @@ function model_tokens(container, data) {
     });
 
     datasets.push({
-      label: `${model} (Total)`,
+      label: `${model}`,
       data: totalData,
       backgroundColor: color.dark,
       stack: model,
@@ -223,17 +287,127 @@ function model_tokens(container, data) {
           intersect: false,
         },
       },
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          stacked: false,
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Tokens",
+          },
+        },
+      },
+    },
+  });
+}
+
+function model_scores(container, data) {
+  const aggregation = {};
+  data.forEach((item) => {
+    const model = item.model;
+    const ups = item.up;
+    const downs = item.down;
+
+    if (!aggregation[model]) {
+      aggregation[model] = { ups: 0, downs: 0 };
+    }
+
+    aggregation[model].ups += ups;
+    aggregation[model].downs += downs;
+  });
+
+  const green = "#008000";
+  const red = "#800000";
+
+  const labels = Object.keys(aggregation).sort();
+
+  const upsData = labels.map((model) =>
+    aggregation[model] ? aggregation[model].ups : 0,
+  );
+  const downsData = labels.map((model) =>
+    aggregation[model] ? aggregation[model].downs : 0,
+  );
+
+  const datasets = [
+    {
+      label: "Ups",
+      data: upsData,
+      backgroundColor: green,
+    },
+    {
+      label: "Downs",
+      data: downsData,
+      backgroundColor: red,
+    },
+  ];
+
+  new Chart(container, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: datasets,
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Total votes by model",
+        },
+        tooltip: {
+          mode: "index",
+          intersect: false,
+        },
+      },
     },
     scales: {
       x: {
         stacked: false,
       },
       y: {
-        stacked: false,
+        stacked: true,
         beginAtZero: true,
         title: {
           display: true,
-          text: "Tokens",
+          text: "Votes",
+        },
+      },
+    },
+  });
+}
+
+function scores(container, data) {
+  const aggregation = { ups: 0, downs: 0 };
+  data.forEach((item) => {
+    const ups = item.up;
+    const downs = item.down;
+
+    aggregation.ups += ups;
+    aggregation.downs += downs;
+  });
+
+  new Chart(container, {
+    type: "pie",
+    data: {
+      labels: ["Total Ups", "Total Downs"],
+      datasets: [
+        {
+          data: [aggregation.ups, aggregation.downs],
+          backgroundColor: [green, red],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      radius: "50%",
+      plugins: {
+        title: {
+          display: true,
+          text: "Total votes",
         },
       },
     },

@@ -1,4 +1,5 @@
 import datetime
+from uuid import UUID
 
 from sqlmodel import SQLModel
 
@@ -9,6 +10,26 @@ class UsageDTO(SQLModel):
   prompt_tokens: int
   completion_tokens: int
   total_tokens: int
+
+  class Config:
+    from_attributes = True
+
+class ScoreDTO(SQLModel):
+  model: str
+  up: int
+  down: int
+
+  class Config:
+    from_attributes = True
+
+class RequestDTO(SQLModel):
+  timestamp: datetime.datetime
+  model: str
+  track: UUID
+  prompt_tokens: int
+  completion_tokens: int
+  total_tokens: int
+  score: str 
 
   class Config:
     from_attributes = True

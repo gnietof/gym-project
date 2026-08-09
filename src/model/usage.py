@@ -1,7 +1,8 @@
 import datetime
 from typing import List, Optional
+import uuid
 
-from sqlalchemy import Column, DateTime, Integer, Numeric, String
+from sqlalchemy import UUID, Column, DateTime, Integer, Numeric, String, text
 from sqlalchemy.orm import Mapped, declarative_base, mapped_column
 from sqlalchemy.dialects.postgresql import JSONB
 
@@ -19,6 +20,9 @@ class Usage(Base):
   id: Mapped[int] = mapped_column(Integer,primary_key=True)
   provider: Mapped[str] = mapped_column(String(50),nullable=False)
   model: Mapped[str] = mapped_column(String(50),nullable=False)
+
+  track: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True),unique=True, server_default=text("gen_random_uuid()"))
+  score: Mapped[str] = mapped_column(String,nullable=True)
 
   messages_sent: Mapped[List[dict]] = mapped_column(JSONB,nullable=False)
   tools_provided: Mapped[Optional[List[dict]]] = mapped_column(JSONB,nullable=False)
