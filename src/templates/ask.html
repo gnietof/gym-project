@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/base.css') }}"
+    />
+  </head>
+
+  <body>
+    <div id="nav-placeholder" data-tab=""welcome"></div>    
+
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 bg-light p-4 rounded">
+      <pre
+        id="result"
+        class="chat-container"
+        style="white-space: pre-wrap;"
+      ></pre>
+        <textarea
+          rows="4"
+          id="question"
+          name="question"
+          placeholder="Ask/Pregunta"
+        ></textarea>
+    </div>
+  </div>
+</section>
+
+    <script>
+      let id = undefined;
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const form = document.getElementById("chatForm");
+        form.addEventListener("keydown", async (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            form.requestSubmit();
+          }
+        });
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const question = document.getElementById("question").value;
+
+          const div1 = document.createElement("div");
+          div1.classList.add("message", "right");
+          div1.textContent = question;
+
+          document.getElementById("result").append(div1);
+
+          const formData = new FormData();
+          formData.append("question", question);
+
+          const response = await fetch("/chat/ask", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: id,
+              question: question,
+            }),
+          });
+
+          const result = await response.json();
+          id = result.id;
+          const div2 = document.createElement("div");
+          div2.classList.add("message", "left");
+          div2.textContent = result.answer;
+          document.getElementById("result").append(div2);
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/jquery-4.0.0.js"   integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="   crossorigin="anonymous"></script>
+    <script src="../static/js/main.js"></script>    
+  </body>
+</html>
