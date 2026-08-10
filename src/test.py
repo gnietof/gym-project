@@ -1,6 +1,7 @@
+import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
-import os
 
 load_dotenv()
 
@@ -9,31 +10,33 @@ key = os.getenv("GROQ_API_KEY")
 print(f"Key: {key}")
 
 openai_client = OpenAI(
-    api_key=os.getenv("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1"
+    api_key=os.getenv("GROQ_API_KEY"), base_url="https://api.groq.com/openai/v1"
 )
 
-def classify_question(instructions:str, questions:str) -> str:
-  # model = "llama-3.1-8b-instant"
-  # model = "llama-3.3-70b-versatile"
-  model = "qwen/qwen3.6-27b"
-  # model = "meta-llama/llama-prompt-guard-2-22m"
 
-  messages = [
-    {"role":"system","content":instructions},
-    {"role":"user","content":question}
-  ]
+def classify_question(instructions: str, questions: str) -> str:
+    # model = "llama-3.1-8b-instant"
+    # model = "llama-3.3-70b-versatile"
+    model = "qwen/qwen3.6-27b"
+    # model = "meta-llama/llama-prompt-guard-2-22m"
 
-  response = openai_client.chat.completions.create(
-      model=model,
-      messages=messages,
-  )
+    messages = [
+        {"role": "system", "content": instructions},
+        {"role": "user", "content": question},
+    ]
 
-  json = response.choices[0].message.content
-  print(f"\nQuestion: {question}\nSchema: {json}\n")
-  print(f"\nInput: {response.usage.prompt_tokens}\nOutput: {response.usage.completion_tokens}\n")
+    response = openai_client.chat.completions.create(
+        model=model,
+        messages=messages,
+    )
 
-  return json
+    json = response.choices[0].message.content
+    print(f"\nQuestion: {question}\nSchema: {json}\n")
+    print(
+        f"\nInput: {response.usage.prompt_tokens}\nOutput: {response.usage.completion_tokens}\n"
+    )
+
+    return json
 
 
 instructions = """
@@ -78,5 +81,3 @@ copy or summarize ONLY the concept requested by the user.
 
 question = "Are there any aerobic activities?."
 json = classify_question(instructions, question)
-
-
