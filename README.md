@@ -33,6 +33,7 @@ This application has been prepared to be deployed using Docker Compose.
 *** Work in progress ***
 
 ## Architecture
+<img width="589" height="411" alt="image" src="https://github.com/user-attachments/assets/f7e9dd15-0508-453a-b01e-b1bf4e04317f" />
 
 *** Work in progress ***
 
