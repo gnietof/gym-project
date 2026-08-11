@@ -19,7 +19,7 @@ This application has been prepared to be deployed using Docker Compose.
 - A Groq Key (Groq is being used for AI agents and RAG)
   
 ### Full Setup
-
+The application uses two containers, one for Postgres and another one for FastAPI.
 *** Work in progress ***
 
 ## Evaluation
@@ -33,7 +33,7 @@ This application has been prepared to be deployed using Docker Compose.
 *** Work in progress ***
 
 ## Architecture
-<img width="589" height="411" alt="image" src="https://github.com/user-attachments/assets/f7e9dd15-0508-453a-b01e-b1bf4e04317f" />
+<img width="593" height="406" alt="image" src="https://github.com/user-attachments/assets/941cb84a-6294-4009-8246-b08b43fb6a39" />
 
 *** Work in progress ***
 
