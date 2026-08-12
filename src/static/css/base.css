@@ -85,3 +85,56 @@ body {
   background-color: #f27d00;
   color: #2b2b2b;
 }
+
+.table {
+  font-size: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.badge-pill {
+  display: inline-block;
+  padding: 0.5rem 1rem !important; /* px-3 py-2 alignment */
+  font-weight: 600 !important; /* fw-semibold alignment */
+  border-radius: 50rem !important; /* rounded-pill alignment */
+
+  border: 1px solid var(--bs-success-border-subtle) !important;
+}
+
+.badge-pill-approved {
+  color: var(--bs-success-text-em) !important;
+  background-color: var(--bs-success-bg-subtle) !important;
+  border: 1px solid var(--bs-success-border-subtle) !important;
+}
+
+.badge-pill-rejected {
+  color: var(--bs-danger-text-em) !important;
+  background-color: var(--bs-danger-bg-subtle) !important;
+  border: 1px solid var(--bs-danger-border-subtle) !important;
+}
+
+tr.text-primary td,
+tr.text-primary th {
+  color: inherit;
+}
+
+tr.row-approved td {
+  color: #008000 !important;
+}
+
+tr.row-rejected td {
+  color: #800000 !important;
+}
+
+.custom-resizable {
+  resize: vertical;
+  height: 180px;
+  min-height: 100px;
+  max-height: 600px;
+}
+
+pre.small {
+  font-size: 0.7rem;
+}

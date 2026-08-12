@@ -4,8 +4,9 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from common.db.dependencies import get_db
-from models.usage import RequestDTO, ScoreDTO, UsageDTO
+from models.usage import DetailDTO, RequestDTO, ScoreDTO, UsageDTO
 from services.usage_services import (
+    get_request_by_track_service,
     get_requests_service,
     get_scores_service,
     get_usages_service,
@@ -35,3 +36,10 @@ def get_requests_endpoint(db: Session = Depends(get_db)):
     logger.debug("Requested a list of llm requests.")
     records = get_requests_service(db)
     return [RequestDTO.model_validate(record) for record in records]
+
+
+@router.get("/requests/{track}", response_model=DetailDTO)
+def get_request_by_track_endpoint(track: str, db: Session = Depends(get_db)):
+    logger.debug(f"Request llm request with track id {track}.")
+    record = get_request_by_track_service(track, db)
+    return DetailDTO.model_validate(record)

@@ -1,6 +1,6 @@
 import logging
 
-from sqlalchemy import func, select
+from sqlalchemy import and_, func, select
 from sqlalchemy.exc import SQLAlchemyError
 
 from schemas.prompt import Prompt
@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def track_request(
+    id: str,
     model: str,
     prompt: Prompt,
     messages: list[dict],
@@ -19,6 +20,7 @@ def track_request(
 ):
     try:
         usage = Usage(
+            session=id,
             provider="GROQ",
             model=model,
             messages_sent=messages,
@@ -77,6 +79,7 @@ def get_all_requests(db: any) -> list[any]:
             Usage.timestamp,
             Usage.model,
             Usage.track,
+            Usage.session,
             Usage.prompt_tokens,
             Usage.completion_tokens,
             Usage.total_tokens,
@@ -90,3 +93,23 @@ def get_all_requests(db: any) -> list[any]:
     records = db.execute(query)
 
     return records
+
+
+def get_request_by_track(db: any, track: str) -> list[any]:
+    query = select(
+        Usage.timestamp,
+        Usage.model,
+        Usage.track,
+        Usage.session,
+        Usage.prompt_tokens,
+        Usage.completion_tokens,
+        Usage.total_tokens,
+        Usage.messages_sent,
+        Usage.response_received,
+        Usage.tag,
+        func.coalesce(Usage.score, "").label("score"),
+    ).where(and_(Usage.provider == "GROQ", Usage.track == track))
+
+    record = db.execute(query).first()
+
+    return record

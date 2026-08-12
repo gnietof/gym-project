@@ -24,7 +24,9 @@ async def score_answer(track: str, mode: str, db: any):
         logger.info(f"Track {track} not found for scoring!")
 
 
-async def ask_question(question: str, tag: str, db: any, model=LLAMA31_8B) -> str:
+async def ask_question(
+    id: str, question: str, tag: str, db: any, model=LLAMA31_8B
+) -> str:
     activities = _semantic_search(db, question)
 
     if not activities:
@@ -33,16 +35,7 @@ async def ask_question(question: str, tag: str, db: any, model=LLAMA31_8B) -> st
     context = []
     for activity in activities:
         context.append(activity.full_description)
-
     full_context = "\n\n---\n\n".join(context)
-
-    # system_prompt = (
-    #   "You are an expert Gym and Fitness AI assistant. Your job is to answer user questions "
-    #   "accurately using ONLY the verified context provided below. If the answer cannot be "
-    #   "found in the context, politely state that you do not know."
-    #   "Do NOT add anything which is not in the infomration provided\n\n"
-    #   f"--- START CONTEXT ---\n{full_context}\n--- END CONTEXT ---"
-    #   )
 
     prompt = get_prompt_by_tag(db, tag)
     if not prompt:
@@ -56,7 +49,7 @@ async def ask_question(question: str, tag: str, db: any, model=LLAMA31_8B) -> st
     ]
 
     response = create(messages, model, tag, [])
-    usage = track_request(model, prompt, messages, [], response, db)
+    usage = track_request(id, model, prompt, messages, [], response, db)
 
     answer = response.choices[0].message.content
     track = usage.track

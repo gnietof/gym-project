@@ -24,6 +24,8 @@ class Usage(Base):
         UUID(as_uuid=True), unique=True, server_default=text("gen_random_uuid()")
     )
 
+    session: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
+
     track: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), unique=True, server_default=text("gen_random_uuid()")
     )

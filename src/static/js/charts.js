@@ -208,7 +208,7 @@ function detail_tokens(container, data) {
       plugins: {
         title: {
           display: true,
-          text: "Total tokens by provider",
+          text: "Input/Output tokens by provider",
         },
         tooltip: {
           mode: "index",

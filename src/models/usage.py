@@ -29,11 +29,29 @@ class RequestDTO(SQLModel):
     timestamp: datetime.datetime
     model: str
     track: UUID
+    session: UUID
     prompt_tokens: int
     completion_tokens: int
     total_tokens: int
     score: str
     tag: str
+
+    class Config:
+        from_attributes = True
+
+
+class DetailDTO(SQLModel):
+    timestamp: datetime.datetime
+    model: str
+    track: UUID
+    session: UUID
+    prompt_tokens: int
+    completion_tokens: int
+    total_tokens: int
+    score: str
+    tag: str
+    messages_sent: list[dict]
+    response_received: dict
 
     class Config:
         from_attributes = True

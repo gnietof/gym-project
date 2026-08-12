@@ -11,9 +11,11 @@ function create_table(container, columns, data) {
   thead.classList.add("sticky-top");
   const tr = document.createElement("tr");
   columns.forEach((column) => {
-    const th = document.createElement("th");
-    th.textContent = column[1];
-    tr.append(th);
+    if (column.label) {
+      const th = document.createElement("th");
+      th.textContent = column.label;
+      tr.append(th);
+    }
   });
   thead.append(tr);
   table.append(thead);
@@ -22,9 +24,23 @@ function create_table(container, columns, data) {
   data.forEach((request) => {
     const tr = document.createElement("tr");
     columns.forEach((column) => {
-      const td = document.createElement("td");
-      td.textContent = request[column[0]];
-      tr.append(td);
+      if (column.label) {
+        const td = document.createElement("td");
+        td.textContent = request[column.field];
+        tr.append(td);
+        if (column.link) {
+          td.addEventListener("click", (event) => {
+            window.location.href = `${column.link}?${column.field}=${request[column.field]}`;
+          });
+          td.style = "cursor:pointer";
+        }
+      }
+      if (column.clazz) {
+        const clazz = column.clazz[request[column.field]];
+        if (clazz) {
+          tr.classList.add(clazz);
+        }
+      }
     });
     tbody.append(tr);
   });

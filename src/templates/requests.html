@@ -12,7 +12,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', path='css/base.css') }}"
+      href="../static/css/base.css"
     />
   </head>
 
@@ -32,14 +32,27 @@
           },
         });
 
+        // columns = [
+        //   ['timestamp','Time'],
+        //   ['tag','Tag'],
+        //   ['session','Session'],
+        //   ['track','Track','./request'],
+        //   ['prompt_tokens','Prompt'],
+        //   ['completion_tokens','Completion'],
+        //   ['total_tokens','Total'],
+        //   ['score','Score']
+        // ]
+
         columns = [
-          ['timestamp','Time'],
-          ['tag','Tag'],
-          ['track','Track Id'],
-          ['prompt_tokens','Prompt Tokens'],
-          ['completion_tokens','Completion Tokens'],
-          ['total_tokens','Total Tokens'],
-          ['score','Score']
+          { field: "timestamp", label: "Time" },
+          { field: "tag", label: "Tag" },
+          { field: "session", label: "Session" },
+          { field: "track", label: "Track", link: "./request" },
+          { field: "prompt_tokens", label: "Prompt" },
+          { field: "completion_tokens", label: "Completion" },
+          { field: "total_tokens", label: "Total" },
+          // { field: "score", color: {"U":"#008000","D":"#800000"} }
+          { field: "score", clazz: {"U":"row-approved","D":"row-rejected"} }
         ]
 
         const data = await response.json();

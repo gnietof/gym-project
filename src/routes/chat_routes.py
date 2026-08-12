@@ -1,4 +1,5 @@
 import logging
+import uuid
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
@@ -11,15 +12,20 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
+sessions = {}
 
 @router.post("/ask", response_model=ChatResponseDTO)
 async def ask(payload: ChatRequestDTO, db: Session = Depends(get_db)):
     id = payload.id
+    if not id:
+        id = str(uuid.uuid4())
+    if ()
+
     question = payload.question
 
     logger.debug(f"Accepting question {question} for session {id}.")
 
-    answer, track = await ask_question(question, "gym_assistant", db)
+    answer, track = await ask_question(id, question, "gym_assistant", db)
     response = ChatResponseDTO(id=id, answer=answer, track=track)
     return response
 
