@@ -9,7 +9,7 @@ from schemas.usage import Usage
 logger = logging.getLogger(__name__)
 
 
-def track_request(
+def track_create(
     id: str,
     model: str,
     prompt: Prompt,
@@ -37,6 +37,35 @@ def track_request(
         db.refresh(usage)
 
         return usage
+
+    except SQLAlchemyError as e:
+        logger.info(f"Exception while storing LLM call in database: {e}")
+
+
+def track_embed(
+    id: str,
+    model: str,
+    tag: str,
+    contents: str,
+    tokens_used: int,
+    response: dict,
+    db: any,
+):
+    try:
+        usage = Usage(
+            session=id,
+            provider="GEMINI",
+            model=model,
+            messages_sent=contents,
+            tools_provided=[],
+            response_received=response.model_dump(),
+            tag=tag,
+            prompt_tokens=tokens_used,
+            completion_tokens=0,
+            total_tokens=tokens_used,
+        )
+        db.add(usage)
+        db.commit()
 
     except SQLAlchemyError as e:
         logger.info(f"Exception while storing LLM call in database: {e}")

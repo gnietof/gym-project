@@ -14,12 +14,12 @@ router = APIRouter()
 
 sessions = {}
 
+
 @router.post("/ask", response_model=ChatResponseDTO)
 async def ask(payload: ChatRequestDTO, db: Session = Depends(get_db)):
     id = payload.id
     if not id:
         id = str(uuid.uuid4())
-    if ()
 
     question = payload.question
 

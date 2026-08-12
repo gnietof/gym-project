@@ -41,27 +41,4 @@ def create(messages: list[dict], model: str, tag: str, tools=None) -> any:
     except APIStatusError as e:
         logger.info(f"Exception while calling Groq: {e}")
 
-    # try:
-    #     with SessionLocal() as session:
-    #         usage = Usage(
-    #             provider="GROQ",
-    #             model=model,
-    #             messages_sent=messages,
-    #             tools_provided=tools,
-    #             response_received=response.model_dump(),
-    #             tag=tag,
-    #             prompt_tokens=response.usage.prompt_tokens,
-    #             completion_tokens=response.usage.completion_tokens,
-    #             total_tokens=response.usage.total_tokens,
-    #             prompt
-    #         )
-    #         session.add(usage)
-    #         session.commit()
-    #         session.refresh(usage)
-
-    #         track = usage.track
-
-    # except SQLAlchemyError as e:
-    #     logger.info(f"Exception while storing LLM call in database: {e}")
-
     return response

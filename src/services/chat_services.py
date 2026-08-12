@@ -1,12 +1,10 @@
 import logging
 
-from sqlalchemy import select
-
-from ai_services.gemini import embed
+from ai_services.gemini import count, embed
 from ai_services.groq import create
+from repository.activity_repo import vector_search
 from repository.propmpt_repo import get_prompt_by_tag
-from repository.usage_repo import track_request
-from schemas.activity import Activity
+from repository.usage_repo import track_create, track_embed
 from schemas.usage import Usage
 
 LLAMA31_8B = "llama-3.1-8b-instant"
@@ -27,11 +25,25 @@ async def score_answer(track: str, mode: str, db: any):
 async def ask_question(
     id: str, question: str, tag: str, db: any, model=LLAMA31_8B
 ) -> str:
-    activities = _semantic_search(db, question)
 
-    if not activities:
+    # Question embedding. Counting tokens for usage tracking
+    tokens = count(question, "gemini-embedding-001")
+    response = embed(question, "gemini-embedding-001")
+    track_embed(
+        id, "gemini-embedding-001", "embed_text", question, tokens, response, db
+    )
+    if not response:
+        logger.error("Question embedding failed.")
         return "Sorry, could not find matching context for that question."
 
+    # Document search using the generated embedding
+    query_vector = response.embeddings[0].values
+    activities = vector_search(db, query_vector)
+    if not activities:
+        logger.warning("Search did not return any documents.")
+        return "Sorry, could not find matching context for that question."
+
+    # Build context with retrieved documents
     context = []
     for activity in activities:
         context.append(activity.full_description)
@@ -48,26 +60,11 @@ async def ask_question(
         {"role": "user", "content": question},
     ]
 
+    # Generate the response using the LLM
     response = create(messages, model, tag, [])
-    usage = track_request(id, model, prompt, messages, [], response, db)
+    usage = track_create(id, model, prompt, messages, [], response, db)
 
     answer = response.choices[0].message.content
     track = usage.track
 
     return answer, track
-
-
-def _semantic_search(db: any, question: str, limit: int = 5) -> list[Activity]:
-
-    query_vector = embed(question)
-
-    query = (
-        select(Activity)
-        .order_by(Activity.embedding.cosine_distance(query_vector))
-        .limit(limit)
-    )
-
-    result = db.execute(query)
-    closest = result.scalars().all()
-
-    return closest
