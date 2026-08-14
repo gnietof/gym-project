@@ -32,17 +32,6 @@
           },
         });
 
-        // columns = [
-        //   ['timestamp','Time'],
-        //   ['tag','Tag'],
-        //   ['session','Session'],
-        //   ['track','Track','./request'],
-        //   ['prompt_tokens','Prompt'],
-        //   ['completion_tokens','Completion'],
-        //   ['total_tokens','Total'],
-        //   ['score','Score']
-        // ]
-
         columns = [
           { field: "timestamp", label: "Time" },
           { field: "tag", label: "Tag" },
@@ -51,7 +40,6 @@
           { field: "prompt_tokens", label: "Prompt" },
           { field: "completion_tokens", label: "Completion" },
           { field: "total_tokens", label: "Total" },
-          // { field: "score", color: {"U":"#008000","D":"#800000"} }
           { field: "score", clazz: {"U":"row-approved","D":"row-rejected"} }
         ]
 

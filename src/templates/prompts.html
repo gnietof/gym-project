@@ -33,10 +33,10 @@
         });
 
         columns = [
-          ['timestamp','Time'],
-          ['tag','Tag'],
-          ['active','Active'],
-          ['template','Template']
+          { field: 'timestamp', label: 'Time'},
+          { field: 'tag', label: 'Tag'},
+          { field: 'active', label: 'Active'},
+          { field: 'template', label: 'Template'}
         ]
 
         const data = await response.json();

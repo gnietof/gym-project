@@ -1,0 +1,359 @@
+[
+  {
+    "code": "aly",
+    "name": "Alineación Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "agy",
+    "name": "Antigravity Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "aqd",
+    "name": "Aqua Dynamic",
+    "duration": 45,
+    "new": false,
+    "category": "Aqua"
+  },
+  {
+    "code": "aqr",
+    "name": "Aqua Run",
+    "duration": 60,
+    "new": false,
+    "category": "Aqua"
+  },
+  {
+    "code": "bbl",
+    "name": "Barbell",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "bya",
+    "name": "Body Attack",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "byb",
+    "name": "Body Balance",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "byc",
+    "name": "Body Combat",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "byp",
+    "name": "Bodypump",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "byj",
+    "name": "Body Jam",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "byh",
+    "name": "Bodypump Heavy",
+    "duration": 55,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "bok",
+    "name": "Booster Keiser",
+    "duration": 55,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "bcp",
+    "name": "Bootcamp",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "bbd",
+    "name": "Booty Build",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "cxg",
+    "name": "Cross Gym",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "cyc",
+    "name": "Cycling",
+    "duration": 45,
+    "new": false,
+    "category": "Cycling"
+  },
+  {
+    "code": "hit",
+    "name": "Cycling HIIT",
+    "duration": 35,
+    "new": false,
+    "category": "Cycling"
+  },
+  {
+    "code": "eft",
+    "name": "Elle Fitness",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "est",
+    "name": "Elle Strong",
+    "duration": 55,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "end",
+    "name": "Endurance",
+    "duration": 60,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "reh",
+    "name": "G. Rehabilitación",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "hlt",
+    "name": "Haltero",
+    "duration": 60,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "gym",
+    "name": "Gymnastics",
+    "duration": 60,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "hty",
+    "name": "Hatha Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "hbx",
+    "name": "HBX Round",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "hyb",
+    "name": "Hybrid",
+    "duration": 55,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "hym",
+    "name": "Hybrid Max",
+    "duration": 75,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "hxe",
+    "name": "Hyrox Engine",
+    "duration": 55,
+    "new": true,
+    "category": "Hyrox"
+  },
+  {
+    "code": "hxc",
+    "name": "Hyrox Community",
+    "duration": 90,
+    "new": true,
+    "category": "Hyrox"
+  },
+  {
+    "code": "hxf",
+    "name": "Hyrox Force",
+    "duration": 55,
+    "new": true,
+    "category": "Hyrox"
+  },
+  {
+    "code": "hxl",
+    "name": "Hyrox Lab",
+    "duration": 55,
+    "new": true,
+    "category": "Hyrox"
+  },
+  {
+    "code": "hxr",
+    "name": "Hyrox Run",
+    "duration": 55,
+    "new": true,
+    "category": "Hyrox"
+  },
+  {
+    "code": "ash",
+    "name": "Inspired Ashtanga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "lmc",
+    "name": "Lesmills Core",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "lmd",
+    "name": "Lesmills Dance",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "mob",
+    "name": "Mobility",
+    "duration": 45,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "ndy",
+    "name": "Nidra Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "plt",
+    "name": "Pilates",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "pwy",
+    "name": "Power Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "rcv",
+    "name": "RCVRI",
+    "duration": 35,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "rig",
+    "name": "Rig",
+    "duration": 55,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "run",
+    "name": "Run in",
+    "duration": 55,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "s50",
+    "name": "Strength 50+",
+    "duration": 55,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "s60",
+    "name": "Strength 60+",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "sdv",
+    "name": "Strength Development LM",
+    "duration": 45,
+    "new": false,
+    "category": null
+  },
+  {
+    "code": "str",
+    "name": "Strongman",
+    "duration": 60,
+    "new": true,
+    "category": null
+  },
+  {
+    "code": "vyy",
+    "name": "Vinyasa Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "wod",
+    "name": "WOD",
+    "duration": 60,
+    "new": false,
+    "category": "WOD"
+  },
+  {
+    "code": "twd",
+    "name": "Team WOD",
+    "duration": 90,
+    "new": true,
+    "category": "WOD"
+  },
+  {
+    "code": "yyy",
+    "name": "Yin Yan Yoga",
+    "duration": 55,
+    "new": false,
+    "category": "Yoga"
+  },
+  {
+    "code": "zmb",
+    "name": "Zumba",
+    "duration": 55,
+    "new": false,
+    "category": null
+  }
+]

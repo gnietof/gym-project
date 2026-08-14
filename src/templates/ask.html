@@ -61,7 +61,8 @@
           const formData = new FormData();
           formData.append("question", question);
 
-          const response = await fetch("/chat/ask", {
+          // const response = await fetch("/chat/ask", {
+          const response = await fetch("/chat/askAgent", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

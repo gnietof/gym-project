@@ -14,6 +14,7 @@ class Activity(Base):
     __table_args__: ClassVar[dict] = {"schema": "gym"}
 
     id = Column(SmallInteger, primary_key=True, autoincrement=True)
+    activity_code = Column(String)
     activity_name = Column(String)
     category = Column(String)
     subcategory = Column(String)

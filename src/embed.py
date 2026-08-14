@@ -1,4 +1,3 @@
-import asyncio
 import logging
 
 from sqlalchemy import select
@@ -17,14 +16,14 @@ async def generate_emebddings():
         query = select(Activity).where(Activity.embedding == None)
         result = db.execute(query)
 
-        activities = result.scalars().all()
+        descriptions = result.scalars().all()
 
-        if not activities:
+        if not descriptions:
             print("All activities already have embeddings")
 
         updated_count = 0
-        for activity in activities:
-            activity.embedding = embed(activity.full_description)
+        for description in descriptions:
+            description.embedding = embed(description.full_description)
             updated_count += 1
 
         db.commit()
@@ -50,14 +49,14 @@ async def semantic_search(question: str, limit: int = 5) -> list[Activity]:
 
 
 async def ask_assistant(question: str, evaluation=False) -> str:
-    activities = await semantic_search(question)
+    descriptions = await semantic_search(question)
 
-    if not activities:
+    if not descriptions:
         return "Sorry, could not find matching activities"
 
     context = []
-    for activity in activities:
-        context.append(activity.full_description)
+    for description in descriptions:
+        context.append(description.full_description)
 
     full_context = "\n\n---\n\n".join(context)
 
@@ -91,20 +90,3 @@ async def ask_assistant(question: str, evaluation=False) -> str:
         messages = [{"role": "system", "content": eval_prompt}]
 
         evaluation = create(messages, "llama-3.1-8b-instant", "gym_assistant_eval", [])
-
-
-# asyncio.run(generate_emebddings())
-
-# asyncio.run(semantic_search("I am looking for an activity which makes my muscles work continuosly"))
-# asyncio.run(semantic_search("Which activities are not good for me if I have a back pain?"))
-# asyncio.run(semantic_search("Which activities are similar to riding a bike?"))
-# asyncio.run(semantic_search("Which activities are similar to aerobics?"))
-# asyncio.run(semantic_search("Any activities being executed hanging from the ceiling?"))
-# asyncio.run(semantic_search("¿Qué actividades hay similares a ir en bici?"))
-
-# asyncio.run(ask_assistant("¿Qué actividades se practican por parejas?"))
-# asyncio.run(ask_assistant("Which activities are similar to riding a bike?"))
-# asyncio.run(ask_assistant("Is there any Yoga activity?"))
-# asyncio.run(ask_assistant("Quiero hacer actividades que no sufra la espalda."))
-# asyncio.run(ask_assistant("Cual es la receta de la tortilla francesa?"))
-asyncio.run(ask_assistant("¿Qué actividades hay similares a ir en bici?"))

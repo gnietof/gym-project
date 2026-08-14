@@ -33,7 +33,7 @@ def create(messages: list[dict], model: str, tag: str, tools=None) -> any:
 
     try:
         response = client.chat.completions.create(
-            messages=messages, model=model, tools=tools, temperature=0.2
+            messages=messages, model=model, tools=tools, temperature=0.1
         )
         # answer = response.choices[0].message.content
     except APIConnectionError as e:

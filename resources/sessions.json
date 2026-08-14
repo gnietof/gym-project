@@ -1,0 +1,1153 @@
+[
+  {
+    "time": "06:10",
+    "day": "monday",
+    "code": "hit"
+  },
+  {
+    "time": "06:10",
+    "day": "tuesday",
+    "code": "hit"
+  },
+  {
+    "time": "06:10",
+    "day": "wednesday",
+    "code": "cxg"
+  },
+  {
+    "time": "06:10",
+    "day": "thursday",
+    "code": "bcp"
+  },
+  {
+    "time": "06:10",
+    "day": "friday",
+    "code": "cxg"
+  },
+  {
+    "time": "06:10",
+    "day": "monday",
+    "code": "cxg"
+  },
+  {
+    "time": "06:10",
+    "day": "tuesday",
+    "code": "hbx"
+  },
+  {
+    "time": "06:30",
+    "day": "tuesday",
+    "code": "wod"
+  },
+  {
+    "time": "06:30",
+    "day": "thursday",
+    "code": "end"
+  },
+  {
+    "time": "06:45",
+    "day": "monday",
+    "code": "cyc"
+  },
+  {
+    "time": "06:45",
+    "day": "tuesday",
+    "code": "hit"
+  },
+  {
+    "time": "06:45",
+    "day": "wednesday",
+    "code": "cyc"
+  },
+  {
+    "time": "06:45",
+    "day": "thursday",
+    "code": "cyc"
+  },
+  {
+    "time": "06:45",
+    "day": "friday",
+    "code": "cyc"
+  },
+  {
+    "time": "06:45",
+    "day": "monday",
+    "code": "byp"
+  },
+  {
+    "time": "06:45",
+    "day": "tuesday",
+    "code": "byb"
+  },
+  {
+    "time": "06:45",
+    "day": "wednesday",
+    "code": "byh"
+  },
+  {
+    "time": "06:45",
+    "day": "thursday",
+    "code": "lmc"
+  },
+  {
+    "time": "07:00",
+    "day": "monday",
+    "code": "wod"
+  },
+  {
+    "time": "07:00",
+    "day": "tuesday",
+    "code": "vyy"
+  },
+  {
+    "time": "07:00",
+    "day": "wednesday",
+    "code": "wod"
+  },
+  {
+    "time": "07:00",
+    "day": "thursday",
+    "code": "plt"
+  },
+  {
+    "time": "07:00",
+    "day": "friday",
+    "code": "wod"
+  },
+  {
+    "time": "07:00",
+    "day": "monday",
+    "code": "est"
+  },
+  {
+    "time": "07:00",
+    "day": "tuesday",
+    "code": "hxf"
+  },
+  {
+    "time": "07:00",
+    "day": "wednesday",
+    "code": "est"
+  },
+  {
+    "time": "07:00",
+    "day": "thursday",
+    "code": "hxe"
+  },
+  {
+    "time": "07:00",
+    "day": "friday",
+    "code": "est"
+  },
+  {
+    "time": "07:00",
+    "day": "friday",
+    "code": "bcp"
+  },
+  {
+    "time": "07:45",
+    "day": "tuesday",
+    "code": "str"
+  },
+  {
+    "time": "07:45",
+    "day": "thursday",
+    "code": "wod"
+  },
+  {
+    "time": "08:00",
+    "day": "monday",
+    "code": "pwy"
+  },
+  {
+    "time": "08:00",
+    "day": "wednesday",
+    "code": "hty"
+  },
+  {
+    "time": "08:10",
+    "day": "monday",
+    "code": "end"
+  },
+  {
+    "time": "08:10",
+    "day": "tuesday",
+    "code": "hyb"
+  },
+  {
+    "time": "08:10",
+    "day": "wednesday",
+    "code": "bok"
+  },
+  {
+    "time": "08:10",
+    "day": "thursday",
+    "code": "hyb"
+  },
+  {
+    "time": "08:10",
+    "day": "friday",
+    "code": "bbl"
+  },
+  {
+    "time": "08:10",
+    "day": "monday",
+    "code": "bok"
+  },
+  {
+    "time": "08:10",
+    "day": "wednesday",
+    "code": "wod"
+  },
+  {
+    "time": "09:20",
+    "day": "monday",
+    "code": "bcp"
+  },
+  {
+    "time": "09:20",
+    "day": "tuesday",
+    "code": "s60"
+  },
+  {
+    "time": "09:20",
+    "day": "wednesday",
+    "code": "bcp"
+  },
+  {
+    "time": "09:20",
+    "day": "thursday",
+    "code": "hyb"
+  },
+  {
+    "time": "09:20",
+    "day": "friday",
+    "code": "s60"
+  },
+  {
+    "time": "09:20",
+    "day": "monday",
+    "code": "eft"
+  },
+  {
+    "time": "09:20",
+    "day": "tuesday",
+    "code": "run"
+  },
+  {
+    "time": "09:20",
+    "day": "wednesday",
+    "code": "eft"
+  },
+  {
+    "time": "09:20",
+    "day": "thursday",
+    "code": "run"
+  },
+  {
+    "time": "09:20",
+    "day": "friday",
+    "code": "hxf"
+  },
+  {
+    "time": "09:20",
+    "day": "monday",
+    "code": "hxe"
+  },
+  {
+    "time": "09:20",
+    "day": "tuesday",
+    "code": "hxl"
+  },
+  {
+    "time": "09:20",
+    "day": "wednesday",
+    "code": "hxr"
+  },
+  {
+    "time": "09:20",
+    "day": "thursday",
+    "code": "rig"
+  },
+  {
+    "time": "09:20",
+    "day": "friday",
+    "code": "bok"
+  },
+  {
+    "time": "09:20",
+    "day": "monday",
+    "code": "rig"
+  },
+  {
+    "time": "09:30",
+    "day": "monday",
+    "code": "cyc"
+  },
+  {
+    "time": "09:30",
+    "day": "tuesday",
+    "code": "reh"
+  },
+  {
+    "time": "09:30",
+    "day": "wednesday",
+    "code": "cyc"
+  },
+  {
+    "time": "09:30",
+    "day": "thursday",
+    "code": "hit"
+  },
+  {
+    "time": "09:30",
+    "day": "friday",
+    "code": "cyc"
+  },
+  {
+    "time": "09:30",
+    "day": "monday",
+    "code": "hty"
+  },
+  {
+    "time": "09:30",
+    "day": "tuesday",
+    "code": "byp"
+  },
+  {
+    "time": "09:30",
+    "day": "wednesday",
+    "code": "ndy"
+  },
+  {
+    "time": "09:30",
+    "day": "thursday",
+    "code": "reh"
+  },
+  {
+    "time": "09:30",
+    "day": "friday",
+    "code": "vyy"
+  },
+  {
+    "time": "09:30",
+    "day": "monday",
+    "code": "byc"
+  },
+  {
+    "time": "09:30",
+    "day": "wednesday",
+    "code": "lmc"
+  },
+  {
+    "time": "09:30",
+    "day": "thursday",
+    "code": "lmd"
+  },
+  {
+    "time": "09:30",
+    "day": "friday",
+    "code": "byp"
+  },
+  {
+    "time": "10:00",
+    "day": "monday",
+    "code": "aqd"
+  },
+  {
+    "time": "10:00",
+    "day": "tuesday",
+    "code": "aqd"
+  },
+  {
+    "time": "10:00",
+    "day": "wednesday",
+    "code": "aqd"
+  },
+  {
+    "time": "10:00",
+    "day": "thursday",
+    "code": "aqd"
+  },
+  {
+    "time": "10:00",
+    "day": "friday",
+    "code": "aqd"
+  },
+  {
+    "time": "10:10",
+    "day": "monday",
+    "code": "wod"
+  },
+  {
+    "time": "10:10",
+    "day": "tuesday",
+    "code": "bcp"
+  },
+  {
+    "time": "10:10",
+    "day": "wednesday",
+    "code": "wod"
+  },
+  {
+    "time": "10:10",
+    "day": "thursday",
+    "code": "bok"
+  },
+  {
+    "time": "10:10",
+    "day": "friday",
+    "code": "wod"
+  },
+  {
+    "time": "10:10",
+    "day": "tuesday",
+    "code": "wod"
+  },
+  {
+    "time": "10:10",
+    "day": "thursday",
+    "code": "wod"
+  },
+  {
+    "time": "10:10",
+    "day": "tuesday",
+    "code": "bok"
+  },
+  {
+    "time": "10:20",
+    "day": "monday",
+    "code": "hym"
+  },
+  {
+    "time": "10:20",
+    "day": "tuesday",
+    "code": "hxf"
+  },
+  {
+    "time": "10:20",
+    "day": "wednesday",
+    "code": "hym"
+  },
+  {
+    "time": "10:20",
+    "day": "thursday",
+    "code": "hxe"
+  },
+  {
+    "time": "10:20",
+    "day": "friday",
+    "code": "hym"
+  },
+  {
+    "time": "10:30",
+    "day": "monday",
+    "code": "plt"
+  },
+  {
+    "time": "10:30",
+    "day": "tuesday",
+    "code": "aly"
+  },
+  {
+    "time": "10:30",
+    "day": "wednesday",
+    "code": "plt"
+  },
+  {
+    "time": "10:30",
+    "day": "thursday",
+    "code": "aly"
+  },
+  {
+    "time": "10:30",
+    "day": "friday",
+    "code": "plt"
+  },
+  {
+    "time": "10:30",
+    "day": "monday",
+    "code": "byp"
+  },
+  {
+    "time": "10:30",
+    "day": "tuesday",
+    "code": "cyc"
+  },
+  {
+    "time": "10:30",
+    "day": "wednesday",
+    "code": "zmb"
+  },
+  {
+    "time": "10:30",
+    "day": "thursday",
+    "code": "lmc"
+  },
+  {
+    "time": "11:00",
+    "day": "tuesday",
+    "code": "bbd"
+  },
+  {
+    "time": "13:30",
+    "day": "monday",
+    "code": "hty"
+  },
+  {
+    "time": "13:30",
+    "day": "tuesday",
+    "code": "byp"
+  },
+  {
+    "time": "13:30",
+    "day": "wednesday",
+    "code": "cxg"
+  },
+  {
+    "time": "13:30",
+    "day": "thursday",
+    "code": "bcp"
+  },
+  {
+    "time": "13:30",
+    "day": "friday",
+    "code": "hit"
+  },
+  {
+    "time": "13:30",
+    "day": "monday",
+    "code": "cyc"
+  },
+  {
+    "time": "14:15",
+    "day": "monday",
+    "code": "cxg"
+  },
+  {
+    "time": "14:15",
+    "day": "tuesday",
+    "code": "bcp"
+  },
+  {
+    "time": "14:15",
+    "day": "friday",
+    "code": "lmc"
+  },
+  {
+    "time": "15:15",
+    "day": "monday",
+    "code": "bbl"
+  },
+  {
+    "time": "15:15",
+    "day": "tuesday",
+    "code": "hxf"
+  },
+  {
+    "time": "15:15",
+    "day": "wednesday",
+    "code": "hbx"
+  },
+  {
+    "time": "15:15",
+    "day": "thursday",
+    "code": "hxe"
+  },
+  {
+    "time": "15:15",
+    "day": "friday",
+    "code": "bcp"
+  },
+  {
+    "time": "16:00",
+    "day": "monday",
+    "code": "lmc"
+  },
+  {
+    "time": "16:00",
+    "day": "tuesday",
+    "code": "cyc"
+  },
+  {
+    "time": "16:00",
+    "day": "wednesday",
+    "code": "byh"
+  },
+  {
+    "time": "16:00",
+    "day": "thursday",
+    "code": "cyc"
+  },
+  {
+    "time": "16:00",
+    "day": "monday",
+    "code": "plt"
+  },
+  {
+    "time": "16:10",
+    "day": "monday",
+    "code": "bbd"
+  },
+  {
+    "time": "16:10",
+    "day": "tuesday",
+    "code": "bcp"
+  },
+  {
+    "time": "16:10",
+    "day": "friday",
+    "code": "bbl"
+  },
+  {
+    "time": "17:00",
+    "day": "monday",
+    "code": "byp"
+  },
+  {
+    "time": "17:00",
+    "day": "tuesday",
+    "code": "plt"
+  },
+  {
+    "time": "17:00",
+    "day": "wednesday",
+    "code": "plt"
+  },
+  {
+    "time": "17:00",
+    "day": "thursday",
+    "code": "plt"
+  },
+  {
+    "time": "17:00",
+    "day": "friday",
+    "code": "byj"
+  },
+  {
+    "time": "17:00",
+    "day": "monday",
+    "code": "est"
+  },
+  {
+    "time": "17:00",
+    "day": "tuesday",
+    "code": "sdv"
+  },
+  {
+    "time": "17:00",
+    "day": "wednesday",
+    "code": "zmb"
+  },
+  {
+    "time": "17:00",
+    "day": "thursday",
+    "code": "byc"
+  },
+  {
+    "time": "17:00",
+    "day": "friday",
+    "code": "est"
+  },
+  {
+    "time": "17:10",
+    "day": "monday",
+    "code": "cyc"
+  },
+  {
+    "time": "17:10",
+    "day": "tuesday",
+    "code": "hit"
+  },
+  {
+    "time": "17:10",
+    "day": "wednesday",
+    "code": "cyc"
+  },
+  {
+    "time": "17:10",
+    "day": "thursday",
+    "code": "cyc"
+  },
+  {
+    "time": "17:10",
+    "day": "friday",
+    "code": "hyb"
+  },
+  {
+    "time": "17:10",
+    "day": "monday",
+    "code": "bcp"
+  },
+  {
+    "time": "17:10",
+    "day": "tuesday",
+    "code": "bok"
+  },
+  {
+    "time": "17:10",
+    "day": "wednesday",
+    "code": "bcp"
+  },
+  {
+    "time": "17:10",
+    "day": "thursday",
+    "code": "bok"
+  },
+  {
+    "time": "17:10",
+    "day": "monday",
+    "code": "run"
+  },
+  {
+    "time": "17:10",
+    "day": "tuesday",
+    "code": "s50"
+  },
+  {
+    "time": "17:10",
+    "day": "wednesday",
+    "code": "run"
+  },
+  {
+    "time": "17:10",
+    "day": "thursday",
+    "code": "s50"
+  },
+  {
+    "time": "17:10",
+    "day": "monday",
+    "code": "hxe"
+  },
+  {
+    "time": "17:10",
+    "day": "wednesday",
+    "code": "hyb"
+  },
+  {
+    "time": "18:00",
+    "day": "monday",
+    "code": "wod"
+  },
+  {
+    "time": "18:00",
+    "day": "tuesday",
+    "code": "yyy"
+  },
+  {
+    "time": "18:00",
+    "day": "wednesday",
+    "code": "wod"
+  },
+  {
+    "time": "18:00",
+    "day": "thursday",
+    "code": "gym"
+  },
+  {
+    "time": "18:00",
+    "day": "friday",
+    "code": "wod"
+  },
+  {
+    "time": "18:00",
+    "day": "monday",
+    "code": "ash"
+  },
+  {
+    "time": "18:00",
+    "day": "tuesday",
+    "code": "wod"
+  },
+  {
+    "time": "18:00",
+    "day": "thursday",
+    "code": "hty"
+  },
+  {
+    "time": "18:00",
+    "day": "friday",
+    "code": "pwy"
+  },
+  {
+    "time": "18:00",
+    "day": "monday",
+    "code": "rig"
+  },
+  {
+    "time": "18:00",
+    "day": "thursday",
+    "code": "rig"
+  },
+  {
+    "time": "18:10",
+    "day": "monday",
+    "code": "zmb"
+  },
+  {
+    "time": "18:10",
+    "day": "tuesday",
+    "code": "lmc"
+  },
+  {
+    "time": "18:10",
+    "day": "wednesday",
+    "code": "byh"
+  },
+  {
+    "time": "18:10",
+    "day": "thursday",
+    "code": "byb"
+  },
+  {
+    "time": "18:10",
+    "day": "friday",
+    "code": "byh"
+  },
+  {
+    "time": "18:10",
+    "day": "monday",
+    "code": "hxe"
+  },
+  {
+    "time": "18:10",
+    "day": "tuesday",
+    "code": "bok"
+  },
+  {
+    "time": "18:10",
+    "day": "wednesday",
+    "code": "mob"
+  },
+  {
+    "time": "18:10",
+    "day": "thursday",
+    "code": "hbx"
+  },
+  {
+    "time": "18:10",
+    "day": "friday",
+    "code": "hxf"
+  },
+  {
+    "time": "18:10",
+    "day": "monday",
+    "code": "bok"
+  },
+  {
+    "time": "18:10",
+    "day": "tuesday",
+    "code": "bbd"
+  },
+  {
+    "time": "18:10",
+    "day": "wednesday",
+    "code": "hxr"
+  },
+  {
+    "time": "18:10",
+    "day": "thursday",
+    "code": "hyb"
+  },
+  {
+    "time": "18:10",
+    "day": "tuesday",
+    "code": "hyb"
+  },
+  {
+    "time": "18:10",
+    "day": "wednesday",
+    "code": "bok"
+  },
+  {
+    "time": "18:30",
+    "day": "monday",
+    "code": "hit"
+  },
+  {
+    "time": "18:30",
+    "day": "tuesday",
+    "code": "cyc"
+  },
+  {
+    "time": "18:30",
+    "day": "wednesday",
+    "code": "cyc"
+  },
+  {
+    "time": "18:30",
+    "day": "thursday",
+    "code": "cyc"
+  },
+  {
+    "time": "18:30",
+    "day": "friday",
+    "code": "cyc"
+  },
+  {
+    "time": "18:30",
+    "day": "monday",
+    "code": "aqd"
+  },
+  {
+    "time": "18:30",
+    "day": "tuesday",
+    "code": "aqd"
+  },
+  {
+    "time": "18:30",
+    "day": "wednesday",
+    "code": "aqd"
+  },
+  {
+    "time": "19:00",
+    "day": "monday",
+    "code": "plt"
+  },
+  {
+    "time": "19:00",
+    "day": "tuesday",
+    "code": "pwy"
+  },
+  {
+    "time": "19:00",
+    "day": "wednesday",
+    "code": "plt"
+  },
+  {
+    "time": "19:00",
+    "day": "thursday",
+    "code": "yyy"
+  },
+  {
+    "time": "19:00",
+    "day": "friday",
+    "code": "plt"
+  },
+  {
+    "time": "19:00",
+    "day": "monday",
+    "code": "bbd"
+  },
+  {
+    "time": "19:00",
+    "day": "wednesday",
+    "code": "est"
+  },
+  {
+    "time": "19:10",
+    "day": "monday",
+    "code": "end"
+  },
+  {
+    "time": "19:10",
+    "day": "tuesday",
+    "code": "aqr"
+  },
+  {
+    "time": "19:10",
+    "day": "wednesday",
+    "code": "wod"
+  },
+  {
+    "time": "19:10",
+    "day": "thursday",
+    "code": "wod"
+  },
+  {
+    "time": "19:10",
+    "day": "tuesday",
+    "code": "bok"
+  },
+  {
+    "time": "19:10",
+    "day": "thursday",
+    "code": "run"
+  },
+  {
+    "time": "19:10",
+    "day": "tuesday",
+    "code": "hlt"
+  },
+  {
+    "time": "19:20",
+    "day": "monday",
+    "code": "byp"
+  },
+  {
+    "time": "19:20",
+    "day": "tuesday",
+    "code": "bya"
+  },
+  {
+    "time": "19:20",
+    "day": "wednesday",
+    "code": "byc"
+  },
+  {
+    "time": "19:20",
+    "day": "thursday",
+    "code": "byp"
+  },
+  {
+    "time": "19:20",
+    "day": "friday",
+    "code": "zmb"
+  },
+  {
+    "time": "19:20",
+    "day": "monday",
+    "code": "hbx"
+  },
+  {
+    "time": "19:20",
+    "day": "tuesday",
+    "code": "hxf"
+  },
+  {
+    "time": "19:20",
+    "day": "wednesday",
+    "code": "hbx"
+  },
+  {
+    "time": "19:20",
+    "day": "thursday",
+    "code": "hxl"
+  },
+  {
+    "time": "19:20",
+    "day": "friday",
+    "code": "hym"
+  },
+  {
+    "time": "19:20",
+    "day": "monday",
+    "code": "bok"
+  },
+  {
+    "time": "19:20",
+    "day": "wednesday",
+    "code": "bok"
+  },
+  {
+    "time": "19:20",
+    "day": "monday",
+    "code": "hym"
+  },
+  {
+    "time": "19:20",
+    "day": "wednesday",
+    "code": "hym"
+  },
+  {
+    "time": "19:40",
+    "day": "monday",
+    "code": "cyc"
+  },
+  {
+    "time": "19:40",
+    "day": "tuesday",
+    "code": "cyc"
+  },
+  {
+    "time": "19:40",
+    "day": "wednesday",
+    "code": "hit"
+  },
+  {
+    "time": "20:00",
+    "day": "monday",
+    "code": "ndy"
+  },
+  {
+    "time": "20:00",
+    "day": "tuesday",
+    "code": "agy"
+  },
+  {
+    "time": "20:00",
+    "day": "wednesday",
+    "code": "plt"
+  },
+  {
+    "time": "20:20",
+    "day": "monday",
+    "code": "lmc"
+  },
+  {
+    "time": "20:20",
+    "day": "tuesday",
+    "code": "byp"
+  },
+  {
+    "time": "20:20",
+    "day": "wednesday",
+    "code": "byb"
+  },
+  {
+    "time": "20:20",
+    "day": "thursday",
+    "code": "bok"
+  },
+  {
+    "time": "20:20",
+    "day": "tuesday",
+    "code": "bok"
+  },
+  {
+    "time": "20:20",
+    "day": "tuesday",
+    "code": "rcv"
+  },
+  {
+    "time": "20:50",
+    "day": "monday",
+    "code": "hyb"
+  },
+  {
+    "time": "20:50",
+    "day": "wednesday",
+    "code": "hyb"
+  },
+
+  { "time": "08:10", "day": "saturday", "code": "hbx" },
+  { "time": "08:10", "day": "sunday", "code": "bbl" },
+  { "time": "08:10", "day": "sunday", "code": "byh" },
+  { "time": "08:10", "day": "sunday", "code": "hyb" },
+
+  { "time": "09:00", "day": "saturday", "code": "lmc" },
+  { "time": "09:00", "day": "sunday", "code": "yyy" },
+  { "time": "09:00", "day": "saturday", "code": "hyb" },
+
+  { "time": "09:10", "day": "saturday", "code": "cyc" },
+  { "time": "09:10", "day": "sunday", "code": "byp" },
+  { "time": "09:10", "day": "saturday", "code": "twd" },
+  { "time": "09:10", "day": "sunday", "code": "bcp" },
+  { "time": "09:10", "day": "sunday", "code": "mob" },
+
+  { "time": "09:30", "day": "sunday", "code": "cyc" },
+
+  { "time": "10:00", "day": "saturday", "code": "plt" },
+  { "time": "10:00", "day": "sunday", "code": "hty" },
+  { "time": "10:00", "day": "saturday", "code": "bok" },
+  { "time": "10:00", "day": "sunday", "code": "bok" },
+
+  { "time": "10:10", "day": "saturday", "code": "aqd" },
+  { "time": "10:10", "day": "sunday", "code": "byc" },
+  { "time": "10:10", "day": "saturday", "code": "bcp" },
+  { "time": "10:10", "day": "sunday", "code": "bcp" },
+
+  { "time": "10:30", "day": "sunday", "code": "cyc" },
+
+  { "time": "11:00", "day": "saturday", "code": "byb" },
+  { "time": "11:00", "day": "sunday", "code": "hxc" },
+  { "time": "11:00", "day": "saturday", "code": "hym" },
+
+  { "time": "12:30", "day": "sunday", "code": "rcv" },
+
+  { "time": "17:10", "day": "saturday", "code": "bbl" },
+  { "time": "18:00", "day": "saturday", "code": "byp" },
+  { "time": "18:10", "day": "saturday", "code": "bcp" },
+  { "time": "19:10", "day": "saturday", "code": "cxg" },
+  { "time": "19:20", "day": "saturday", "code": "cyc" }
+]

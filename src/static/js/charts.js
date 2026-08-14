@@ -379,6 +379,81 @@ function model_scores(container, data) {
   });
 }
 
+function day_scores(container, data) {
+  const aggregation = {};
+  data.forEach((item) => {
+    const date = item.timestamp.split("T")[0];
+    const ups = item.up;
+    const downs = item.down;
+
+    if (!aggregation[date]) {
+      aggregation[date] = { ups: 0, downs: 0 };
+    }
+
+    aggregation[date].ups += ups;
+    aggregation[date].downs += downs;
+  });
+
+  const green = "#008000";
+  const red = "#800000";
+
+  const labels = Object.keys(aggregation).sort();
+
+  const upsData = labels.map((date) =>
+    aggregation[date] ? aggregation[date].ups : 0,
+  );
+  const downsData = labels.map((date) =>
+    aggregation[date] ? aggregation[date].downs : 0,
+  );
+
+  const datasets = [
+    {
+      label: "Ups",
+      data: upsData,
+      backgroundColor: green,
+    },
+    {
+      label: "Downs",
+      data: downsData,
+      backgroundColor: red,
+    },
+  ];
+
+  new Chart(container, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: datasets,
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Total votes by day",
+        },
+        tooltip: {
+          mode: "index",
+          intersect: false,
+        },
+      },
+    },
+    scales: {
+      x: {
+        stacked: false,
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Votes",
+        },
+      },
+    },
+  });
+}
+
 function scores(container, data) {
   const aggregation = { ups: 0, downs: 0 };
   data.forEach((item) => {

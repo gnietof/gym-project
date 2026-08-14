@@ -17,6 +17,7 @@ class UsageDTO(SQLModel):
 
 
 class ScoreDTO(SQLModel):
+    timestamp: datetime.datetime
     model: str
     up: int
     down: int

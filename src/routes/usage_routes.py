@@ -41,5 +41,5 @@ def get_requests_endpoint(db: Session = Depends(get_db)):
 @router.get("/requests/{track}", response_model=DetailDTO)
 def get_request_by_track_endpoint(track: str, db: Session = Depends(get_db)):
     logger.debug(f"Request llm request with track id {track}.")
-    record = get_request_by_track_service(track, db)
+    record = get_request_by_track_service(db, track)
     return DetailDTO.model_validate(record)

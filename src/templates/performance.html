@@ -18,13 +18,29 @@
 
   <body>
     <div id="nav-placeholder" data-tab=""welcome"></div>    
-    <div class="row flex-grow-1 g-3">
-        <div class="col-md-6">    
-          <canvas id="model_scores"></canvas>
-        </div>
-        <div class="col-md-6">    
-          <canvas id="scores"></canvas>
-        </div>
+    
+    <div class="p-2">
+      <div class="row flex-grow-1 g-3">
+        <div class="col-md-6 d-flex flex-column gap-3">
+    
+          <div class="p-3 border rounded bg-white shadow-sm">
+            <canvas id="model_scores"></canvas>
+          </div>
+    
+          <div class="p-3 border rounded bg-white shadow-sm">
+            <canvas id="model_scores2"></canvas>
+          </div>
+
+        </div> 
+
+        <div class="col-md-6">
+          
+          <div class="p-3 border rounded bg-white shadow-sm h-100">
+            <canvas id="scores"></canvas>
+          </div>
+
+        </div> 
+      </div>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
@@ -36,6 +52,7 @@
         });
         const data = await response.json();
         model_scores("model_scores", data);
+        day_scores("model_scores2", data);
         scores("scores", data);
       });
 
