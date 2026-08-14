@@ -1,14 +1,25 @@
 # Gym Assistant
 While other gym assistants focus on the proper way of performing different activities, this one on the other hand is focused on guiding the user to know more about each of the available guided activities.
 
+Initially, this tool was only able to answer RAG question on a corpus of information about different guided activities in a gym. 
+Then the tool was refactored so that an agent was evaluating the questions and tried to answer them by using two different tools: 
+- gym_activities: this one is using RAG to extract information about activities.
+- gym_sessions: up to 254 scheduled sessions for 51 different activities have been added to the database. In this case, the LLM writes the SQL queries to retrieve the required information.
+
+Keywoard search has not been used in this project. Many similar words are used to describe activities and the documents returned where not providing the right answers.
+
 ## Demo
 
 *** Work in progress ***
 
+**Note**: The tool has a 'WhatsApp-like' look because the interface is being migrated to WhatsApp. Although I have already 'migrated' other AI tools to WhatsApp, this is still a "work in progress" for this project.
+
+<img width="1381" height="821" alt="image" src="https://github.com/user-attachments/assets/825cfcd8-d5f4-463d-b0f7-55f3b64dffdc" />
+
 ## Problem
 When a user first joins a gym, such as the one this project is focused on, which offers more than 50 different guided activities, it is complex to understand which are the characteristics, the benefits (or contraindications) or the objectives for each of them. On top of this, the gym has a schedule with up to 250 weekly slots which change over time.
 
-So, this assystant helps with knowing the details about each activity. Additionally, if required, finds the information in the schedule for the selected activities.
+So, this assistant helps with knowing the details about each activity. Additionally, if required, finds the information in the schedule for the selected activities.
 
 ## Quickstart
 This application has been prepared to be deployed using Docker Compose.
@@ -33,25 +44,44 @@ The application uses two containers, one for Postgres and another one for FastAP
 *** Work in progress ***
 
 ## Architecture
-<img width="593" height="406" alt="image" src="https://github.com/user-attachments/assets/941cb84a-6294-4009-8246-b08b43fb6a39" />
+<img width="841" height="581" alt="image" src="https://github.com/user-attachments/assets/81caf5b1-7e2c-431c-834a-7d801df05dae" />
+
 
 *** Work in progress ***
 
-## Prompts
-Instead of hardcoding the prompt in the code or in a configuration file, they are being stored in a table in a database. Prompts can not be modified once stored but a new version can be created. 
-Each tool has its own tag and LLM model. And each tag is associated to a different prompt. The idea is being able to use the most apropriate LLM for each task.
 
 ## Monitoring
-A few views have been created to display the collected information.
+A few views have been created to display the collected information. Each LLM request is being registered in the database: timestamp, model, tag, tokens used ... The information is sent to a Postgres table. 
+In the future this information might feed a tool like Langfuse or being monitored using Grafana.
 
 ### Expenses
-Displays the token ussage. The different models used are included. There is no real cost displayed because free layers are being used.
+Displays the token usage. The different models used are included. There is no real cost displayed because free layers are being used.
+
+**Note**: On August 14th, I read about llama-3.3-70b-versatile being sunset in Groq and so I started testing with openai/gpt-oss-20b and openai/gpt-oss-120b models as can be seen on the screnshot.
+
+<img width="1386" height="821" alt="image" src="https://github.com/user-attachments/assets/8b00cb31-bd4b-41aa-be68-120541ca2404" />
 
 ### Performance
-The user can evaluate the quality of the answer provided. This view provides information about the scoring. 
+The user can evaluate the quality of the answer provided. This view provides information about the scoring when users avaluate the response provided.
+
+<img width="1386" height="822" alt="image" src="https://github.com/user-attachments/assets/ae08e289-be04-4b68-a4f3-f330ac508e62" />
+
+### Requests
+Each request sent by a user is stored in the database for audit purposes. The collected information includes timestamp, model, track (a unique id for each request), session (all the requests received as part a single conversation) and tokens used. The input prompt and the response are also included.
+
+<img width="1386" height="302" alt="image" src="https://github.com/user-attachments/assets/44df0865-bb7a-4f04-a5a0-6bd5b2b2ecf6" />
+
+A detail view shows all the messages sent and the response received for each LLM request. Any request which has been scored is highlighted in green or red.
+
+<img width="1388" height="819" alt="image" src="https://github.com/user-attachments/assets/14af4df9-45f5-4212-8029-090256716971" />
 
 ### Prompts
-Each request sent by a user is stored in the database for audit purposes. The collected information includes timestamp, model, track (a unique id for each request), session (all the requests received as part a single conversation) and tokens used. The imput prompt and the response are also included.
+Instead of hardcoding the prompt in the code or in a configuration file, they are being stored in a table in the database. Prompts can not be modified once stored but a new version can be created. 
+Each tool has its own tag and LLM model. And each tag is associated to a different prompt. The idea is being able to use the most apropriate LLM for each task.
+
+The tool is prepared to manage the prompts so they can be audited later. This part is a "work in progress" and currently the tool does not allow to version or activate/deactivate a prompt.
+
+<img width="1387" height="380" alt="image" src="https://github.com/user-attachments/assets/e1f31722-4a5d-4909-ae3a-b37ecabd6e98" />
 
 ## Future Improvements
 ### Prioritary
@@ -61,3 +91,4 @@ Each request sent by a user is stored in the database for audit purposes. The co
 - Providing a user interface to create version prompts from inside the tool
 ### Nice to have
 - Being able to sort the tables.
+ 
