@@ -2,7 +2,7 @@ import datetime
 import uuid
 from typing import ClassVar
 
-from sqlalchemy import UUID, DateTime, Integer, Numeric, String, event, text
+from sqlalchemy import DDL, UUID, DateTime, Integer, Numeric, String, event, text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, declarative_base, mapped_column
 
@@ -53,7 +53,7 @@ class Usage(Base):
 
 @event.listens_for(Base.metadata, "before_create")
 def receive_before_create(target, connection, **kw):
-    connection.execute(DDL('CREATE SCHEMA IF NOT EXISTS "LOG"'))
+    connection.execute(text('CREATE SCHEMA IF NOT EXISTS "log"'))
 
 
 Base.metadata.create_all(engine)
