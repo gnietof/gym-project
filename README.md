@@ -6,7 +6,7 @@ Then the tool was refactored so that an agent was evaluating the questions and t
 - gym_activities: this one is using RAG to extract information about activities.
 - gym_sessions: up to 254 scheduled sessions for 51 different activities have been added to the database. In this case, the LLM writes the SQL queries to retrieve the required information.
 
-Keywoard search has not been used in this project. Many similar words are used to describe activities and the documents returned where not providing the right answers.
+Keyword search has not been used in this project. Many similar words are used to describe activities and the documents returned where not providing the right answers.
 
 ## Demo
 
@@ -37,13 +37,113 @@ The application uses two containers, one for Postgres and another one for FastAP
 
 ### Retrieval Evaluation
 
-*** Work in progress ***
+A collection of 50+ questions where generated for different activities. Semantic search has been used. Keyword search provided poor results because of the many similar words used in each description.
+Using semantic search for this set of questions the hit rate was 74%. Although 'wrong' answers are not really wrong. 
+
+<details>
+<summary>Output detail</summary>
+For each question, five documents where retrieved using semantic search. If the expected activity was included in one of the returned documents it was included. Only if the first document matched the expected one was counted as a hit.  
+
+
+Antigravity Yoga -> Antigravity Yoga  
+        0: Antigravity Yoga -> Antigravity Yoga  
+Antigravity Yoga -> Antigravity Yoga  
+        0: Antigravity Yoga -> Antigravity Yoga  
+Antigravity Yoga -> Antigravity Yoga  
+        0: Antigravity Yoga -> Antigravity Yoga  
+Antigravity Yoga -> Antigravity Yoga  
+        0: Antigravity Yoga -> Antigravity Yoga  
+Antigravity Yoga -> Antigravity Yoga  
+        0: Antigravity Yoga -> Antigravity Yoga  
+Antigravity Yoga -> Antigravity Yoga  
+        0: Antigravity Yoga -> Antigravity Yoga  
+Bootcamp -> Bootcamp  
+        0: Bootcamp -> Bootcamp  
+Bootcamp -> Team WOD  
+        2: Bootcamp -> Bootcamp  
+Bootcamp -> Cross Gym  
+        2: Bootcamp -> Bootcamp  
+Bootcamp -> Bootcamp  
+        0: Bootcamp -> Bootcamp  
+Bootcamp -> Team WOD  
+        1: Bootcamp -> Bootcamp  
+Bootcamp -> Bootcamp  
+        0: Bootcamp -> Bootcamp  
+Bootcamp -> Booster Keiser  
+Bootcamp -> Cycling HIIT  
+        1: Bootcamp -> Bootcamp  
+Bootcamp -> Bootcamp  
+        0: Bootcamp -> Bootcamp  
+Bootcamp -> Bootcamp  
+        0: Bootcamp -> Bootcamp  
+Cycling HIIT -> Cycling HIIT  
+        0: Cycling HIIT -> Cycling HIIT  
+Cycling HIIT -> Cycling HIIT  
+        0: Cycling HIIT -> Cycling HIIT  
+Cycling HIIT -> Cycling HIIT  
+        0: Cycling HIIT -> Cycling HIIT  
+Cycling HIIT -> Cycling HIIT  
+        0: Cycling HIIT -> Cycling HIIT  
+Elle Fitness -> Elle Fitness  
+        0: Elle Fitness -> Elle Fitness  
+Elle Fitness -> Hybrid  
+        1: Elle Fitness -> Elle Fitness  
+Elle Strong -> Elle Strong  
+        0: Elle Strong -> Elle Strong  
+Elle Strong -> Antigravity Yoga  
+Hybrid -> Hybrid  
+        0: Hybrid -> Hybrid  
+Hybrid -> Hybrid  
+        0: Hybrid -> Hybrid  
+Hybrid -> Hybrid  
+        0: Hybrid -> Hybrid  
+Hybrid -> Hybrid  
+        0: Hybrid -> Hybrid  
+Hybrid -> Hybrid  
+        0: Hybrid -> Hybrid  
+Hybrid Max -> Hybrid Max  
+        0: Hybrid Max -> Hybrid Max  
+Hybrid Max -> Hybrid  
+        1: Hybrid Max -> Hybrid Max  
+Hyrox -> Hyrox Force  
+Hyrox -> Strongman  
+Inspired Ashtanga -> Inspired Ashtanga  
+        0: Inspired Ashtanga -> Inspired Ashtanga  
+Inspired Ashtanga -> Pilates  
+Pilates -> Pilates  
+        0: Pilates -> Pilates  
+Pilates -> Inspired Ashtanga  
+RCVRI -> RCVRI  
+        0: RCVRI -> RCVRI  
+RCVRI -> RCVRI  
+        0: RCVRI -> RCVRI  
+Rig -> Rig  
+        0: Rig -> Rig  
+Rig -> Rig  
+        0: Rig -> Rig  
+Strongman -> Strongman  
+        0: Strongman -> Strongman  
+Strongman -> Strongman  
+        0: Strongman -> Strongman  
+Yin Yan Yoga -> Yin Yan Yoga  
+        0: Yin Yan Yoga -> Yin Yan Yoga  
+Yin Yan Yoga -> Yin Yan Yoga  
+        0: Yin Yan Yoga -> Yin Yan Yoga  
+Zumba -> Zumba  
+        0: Zumba -> Zumba  
+Zumba -> Zumba  
+        0: Zumba -> Zumba  
+First Match: 74.47%
+
+</details>
 
 ### RAG Evaluation
 
 *** Work in progress ***
 
 ## Architecture
+
+
 <img width="841" height="581" alt="image" src="https://github.com/user-attachments/assets/81caf5b1-7e2c-431c-834a-7d801df05dae" />
 
 
