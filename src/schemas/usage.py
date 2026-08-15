@@ -20,16 +20,13 @@ class Usage(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     provider: Mapped[str] = mapped_column(String(50), nullable=False)
     model: Mapped[str] = mapped_column(String(50), nullable=False)
-    prompt: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
-        nullable=False
-    )
+    prompt: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
 
     session: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
-
     track: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), unique=True, default= uuid.uuid4)
+        UUID(as_uuid=True), unique=True, default=uuid.uuid4
     )
+
     score: Mapped[str] = mapped_column(String, nullable=True)
 
     messages_sent: Mapped[list[dict]] = mapped_column(JSONB, nullable=False)
