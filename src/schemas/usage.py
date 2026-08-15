@@ -32,7 +32,7 @@ class Usage(Base):
     score: Mapped[str] = mapped_column(String, nullable=True)
 
     messages_sent: Mapped[list[dict]] = mapped_column(JSONB, nullable=False)
-    tools_provided: Mapped[list[dict] | None] = mapped_column(JSONB, nullable=False)
+    tools_provided: Mapped[list[dict] | None] = mapped_column(JSONB, nullable=True)
     response_received: Mapped[dict] = mapped_column(JSONB, nullable=False)
 
     tag: Mapped[str] = mapped_column(String[20], nullable=False)
