@@ -21,13 +21,14 @@ class Usage(Base):
     provider: Mapped[str] = mapped_column(String(50), nullable=False)
     model: Mapped[str] = mapped_column(String(50), nullable=False)
     prompt: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), unique=True, server_default=text("gen_random_uuid()")
+        UUID(as_uuid=True),
+        nullable=False
     )
 
     session: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
 
     track: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), unique=True, server_default=text("gen_random_uuid()")
+        UUID(as_uuid=True), unique=True, default= uuid.uuid4)
     )
     score: Mapped[str] = mapped_column(String, nullable=True)
 
