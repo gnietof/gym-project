@@ -24,7 +24,7 @@ class Usage(Base):
 
     session: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
     track: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), unique=True, default=uuid.uuid4
+        UUID(as_uuid=True), unique=True, server_default=text("gen_random_uuid()")
     )
 
     score: Mapped[str] = mapped_column(String, nullable=True)
