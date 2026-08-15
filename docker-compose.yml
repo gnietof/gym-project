@@ -1,20 +1,36 @@
-version: "3.8"
-
 services:
   web:
+    image: gym:v1.0.0
     build:
       context: .
-      network: host
-
-    network_mode: "host"
+      dockerfile: Dockerfile
+      ssh: ["default"]
+    container_name: gym
+    restart: always
     ports:
       - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: postgres-llm
+    ports:
+      - "0.0.0.0:5432:5432"
     environment:
-      - GROQ_API_KEY=${GROQ_API_KEY}
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      POSTGRES_USER: "${DB_USER:-pgadmin}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-passw0rd}"
+      POSTGRES_DB: "${DB_DATABASE:-postgres}"
+    volumes:
+      - postgres-llm-data:/var/lib/postgresql/data
+      - ./backup.sql.gz:/docker-entrypoint-initdb.d/backup.sql.gz:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$DB_USER -d $$DB_DATABASE"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-      - DB_HOST=${DB_HOST}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_DATABASE=${DB_DATABASE}
-      - DB_PORT=${DB_PORT}
+volumes:
+  postgres-llm-data:

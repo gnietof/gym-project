@@ -2,7 +2,7 @@ import datetime
 import uuid
 from typing import ClassVar
 
-from sqlalchemy import UUID, DateTime, Integer, Numeric, String, text
+from sqlalchemy import UUID, DateTime, Integer, Numeric, String, event, text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, declarative_base, mapped_column
 
@@ -15,7 +15,7 @@ class Usage(Base):
     """Models the information stored in the database to track LLM's usage"""
 
     __tablename__: ClassVar[str] = "usages"
-    __table_args__: ClassVar[dict] = {"schema": "llm"}
+    __table_args__: ClassVar[dict] = {"schema": "log"}
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     provider: Mapped[str] = mapped_column(String(50), nullable=False)
@@ -49,6 +49,11 @@ class Usage(Base):
         DateTime(timezone=True),
         default=lambda: datetime.datetime.now(datetime.timezone.utc),
     )
+
+
+@event.listens_for(Base.metadata, "before_create")
+def receive_before_create(target, connection, **kw):
+    connection.execute(DDL('CREATE SCHEMA IF NOT EXISTS "LOG"'))
 
 
 Base.metadata.create_all(engine)
