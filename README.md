@@ -175,8 +175,6 @@ The picture below shows a single session where the agent has executed three loop
 
 <img width="1387" height="318" alt="image" src="https://github.com/user-attachments/assets/39ff6b04-2856-43c1-844e-9da37a60252f" />
 
-<img width="1386" height="302" alt="image" src="https://github.com/user-attachments/assets/44df0865-bb7a-4f04-a5a0-6bd5b2b2ecf6" />
-
 A detail view shows all the messages sent and the response received for each LLM request. Any request which has been scored is highlighted in green or red.
 
 <img width="1388" height="819" alt="image" src="https://github.com/user-attachments/assets/14af4df9-45f5-4212-8029-090256716971" />
