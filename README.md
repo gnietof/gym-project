@@ -63,7 +63,7 @@ Additional tables have been included (categories, subcategories, intensity, ...)
 
 ### Retrieval Evaluation
 
-A collection of 50+ questions where generated for different activities. Semantic search has been used. Keyword search provided poor results because of the many similar words used in each description.
+A collection of ~50 questions where generated for different activities. Semantic search has been used. Keyword search provided poor results because of the many similar words used in each description.
 Using semantic search for this set of questions the hit rate was 74%. Although 'wrong' answers are not really wrong. 
 
 <details>
@@ -130,7 +130,24 @@ Matched 2:  4.26%
 
 ### RAG Evaluation
 
-*** Work in progress ***
+The same collection of questions where used to test the RAG system using an LLM judge:
+- Each question is evaluated using RAG and a response is being provided.
+- The question and the answer provided are then being evaluated by the LLM judge.
+- The LLM judge provides a POSITIVE/MEDIUM/NEGATIVE evaluation and also an explanation for that evaluation.
+
+Each of the questions in the set where evaluated using four different LLM models. The results are in the evaluations folder. Even using more complex models the results have been very similar.
+
+<details>
+<summary>Output detail</summary>
+
+| Model | Positive | Medium | Negative |
+| - | -: | -: | -: |
+| llama-3.1-8b-instant | 89.36% | 4.26% | 6.38% | 
+| llama-3.3-70b-versatile | 85.11% | 10.64% | 4.26% | 
+| openai/gpt-oss-20b | 82.98% | 6.38% | 10.64% | 
+| openai/gpt-oss-120b | 85.11% | 2.13% | 12.77% | 
+
+</details>
 
 ## Architecture
 The architecture consists basically of two pieces: a FastAPI to handle the user interface (including the reporting sections) and the Postgres database to store both the documents and the tracking information. 
