@@ -17,7 +17,7 @@ Keyword search has not been used in this project. Many similar words are used to
 <img width="1381" height="821" alt="image" src="https://github.com/user-attachments/assets/825cfcd8-d5f4-463d-b0f7-55f3b64dffdc" />
 
 ## Problem
-When a user first joins a gym, such as the one this project is focused on, which offers more than 50 different guided activities, it is complex to understand which are the characteristics, the benefits (or contraindications) or the objectives for each of them. On top of this, the gym has a schedule with up to 250 weekly slots which change over time.
+When a user first joins a gym, such as the one this project is focused on which offers more than 50 different guided activities, it is complex to understand which are the characteristics, the benefits (or contraindications) or the objectives for each of them. On top of this, the gym has a schedule with up to 250 weekly slots which change over time.
 
 So, this assistant helps with knowing the details about each activity. Additionally, if required, finds the information in the schedule for the selected activities.
 
@@ -45,7 +45,6 @@ ssh-add ~/.ssh/id_ed25519
 env SSH_AUTH_SOCK=$SSH_AUTH_SOCK docker compose build --build-arg CACHE_BUST=$(date +%s) web 
 
 docker compose up 
-
 ```
 
 ### Database
