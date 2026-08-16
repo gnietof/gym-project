@@ -58,6 +58,8 @@ The Postgres database includes several tables:
 | llm | prompts | The prompts which are used by the agent. |
 | log | usage | This table stores each request which has been sent to the LLM's. The contents are then used for building the dashboards. |
 
+Additional tables have been included (categories, subcategories, intensity, ...) for future use.
+
 ## Evaluation
 
 ### Retrieval Evaluation
@@ -168,6 +170,10 @@ The user can evaluate the quality of the answer provided. This view provides inf
 
 ### Requests
 Each request sent by a user is stored in the database for audit purposes. The collected information includes timestamp, model, track (a unique id for each request), session (all the requests received as part a single conversation) and tokens used. The input prompt and the response are also included.
+
+The picture below shows a single session where the agent has executed three loops and called both tools. First gym_activities to know which activities match the request and then gym_sessions to provide the user with the schedule.
+
+<img width="1387" height="318" alt="image" src="https://github.com/user-attachments/assets/39ff6b04-2856-43c1-844e-9da37a60252f" />
 
 <img width="1386" height="302" alt="image" src="https://github.com/user-attachments/assets/44df0865-bb7a-4f04-a5a0-6bd5b2b2ecf6" />
 
