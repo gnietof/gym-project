@@ -31,7 +31,8 @@ This application has been prepared to be deployed using Docker Compose.
   
 ### Full Setup
 The application uses two containers, one for Postgres and another one for FastAPI.
-*** Work in progress ***
+
+
 
 ## Evaluation
 
@@ -45,95 +46,58 @@ Using semantic search for this set of questions the hit rate was 74%. Although '
 For each question, five documents where retrieved using semantic search. If the expected activity was included in one of the returned documents it was included. Only if the first document matched the expected one was counted as a hit.  
 
 
-Antigravity Yoga -> Antigravity Yoga  
-        0: Antigravity Yoga -> Antigravity Yoga  
-Antigravity Yoga -> Antigravity Yoga  
-        0: Antigravity Yoga -> Antigravity Yoga  
-Antigravity Yoga -> Antigravity Yoga  
-        0: Antigravity Yoga -> Antigravity Yoga  
-Antigravity Yoga -> Antigravity Yoga  
-        0: Antigravity Yoga -> Antigravity Yoga  
-Antigravity Yoga -> Antigravity Yoga  
-        0: Antigravity Yoga -> Antigravity Yoga  
-Antigravity Yoga -> Antigravity Yoga  
-        0: Antigravity Yoga -> Antigravity Yoga  
-Bootcamp -> Bootcamp  
-        0: Bootcamp -> Bootcamp  
-Bootcamp -> Team WOD  
-        2: Bootcamp -> Bootcamp  
-Bootcamp -> Cross Gym  
-        2: Bootcamp -> Bootcamp  
-Bootcamp -> Bootcamp  
-        0: Bootcamp -> Bootcamp  
-Bootcamp -> Team WOD  
-        1: Bootcamp -> Bootcamp  
-Bootcamp -> Bootcamp  
-        0: Bootcamp -> Bootcamp  
-Bootcamp -> Booster Keiser  
-Bootcamp -> Cycling HIIT  
-        1: Bootcamp -> Bootcamp  
-Bootcamp -> Bootcamp  
-        0: Bootcamp -> Bootcamp  
-Bootcamp -> Bootcamp  
-        0: Bootcamp -> Bootcamp  
-Cycling HIIT -> Cycling HIIT  
-        0: Cycling HIIT -> Cycling HIIT  
-Cycling HIIT -> Cycling HIIT  
-        0: Cycling HIIT -> Cycling HIIT  
-Cycling HIIT -> Cycling HIIT  
-        0: Cycling HIIT -> Cycling HIIT  
-Cycling HIIT -> Cycling HIIT  
-        0: Cycling HIIT -> Cycling HIIT  
-Elle Fitness -> Elle Fitness  
-        0: Elle Fitness -> Elle Fitness  
-Elle Fitness -> Hybrid  
-        1: Elle Fitness -> Elle Fitness  
-Elle Strong -> Elle Strong  
-        0: Elle Strong -> Elle Strong  
-Elle Strong -> Antigravity Yoga  
-Hybrid -> Hybrid  
-        0: Hybrid -> Hybrid  
-Hybrid -> Hybrid  
-        0: Hybrid -> Hybrid  
-Hybrid -> Hybrid  
-        0: Hybrid -> Hybrid  
-Hybrid -> Hybrid  
-        0: Hybrid -> Hybrid  
-Hybrid -> Hybrid  
-        0: Hybrid -> Hybrid  
-Hybrid Max -> Hybrid Max  
-        0: Hybrid Max -> Hybrid Max  
-Hybrid Max -> Hybrid  
-        1: Hybrid Max -> Hybrid Max  
-Hyrox -> Hyrox Force  
-Hyrox -> Strongman  
-Inspired Ashtanga -> Inspired Ashtanga  
-        0: Inspired Ashtanga -> Inspired Ashtanga  
-Inspired Ashtanga -> Pilates  
-Pilates -> Pilates  
-        0: Pilates -> Pilates  
-Pilates -> Inspired Ashtanga  
-RCVRI -> RCVRI  
-        0: RCVRI -> RCVRI  
-RCVRI -> RCVRI  
-        0: RCVRI -> RCVRI  
-Rig -> Rig  
-        0: Rig -> Rig  
-Rig -> Rig  
-        0: Rig -> Rig  
-Strongman -> Strongman  
-        0: Strongman -> Strongman  
-Strongman -> Strongman  
-        0: Strongman -> Strongman  
-Yin Yan Yoga -> Yin Yan Yoga  
-        0: Yin Yan Yoga -> Yin Yan Yoga  
-Yin Yan Yoga -> Yin Yan Yoga  
-        0: Yin Yan Yoga -> Yin Yan Yoga  
-Zumba -> Zumba  
-        0: Zumba -> Zumba  
-Zumba -> Zumba  
-        0: Zumba -> Zumba  
-First Match: 74.47%
+| Expected | Returned | Found position? |
+|----------|----------|----------|
+| Antigravity Yoga | Antigravity Yoga | 0 | 
+| Antigravity Yoga | Antigravity Yoga | 0 | 
+| Antigravity Yoga | Antigravity Yoga | 0 | 
+| Antigravity Yoga | Antigravity Yoga | 0 | 
+| Antigravity Yoga | Antigravity Yoga | 0 | 
+| Antigravity Yoga | Antigravity Yoga | 0 | 
+| Bootcamp | Bootcamp | 0 | 
+| Bootcamp | Team WOD | 2 | 
+| Bootcamp | Cross Gym | 2 | 
+| Bootcamp | Bootcamp | 0 | 
+| Bootcamp | Team WOD | 1 | 
+| Bootcamp | Bootcamp | 0 | 
+| Bootcamp | Booster Keiser | -- |   
+| Bootcamp | Cycling HIIT | 1 | 
+| Bootcamp | Bootcamp | 0 | 
+| Bootcamp | Bootcamp | 0 | 
+| Cycling HIIT | Cycling HIIT | 0 | 
+| Cycling HIIT | Cycling HIIT | 0 | 
+| Cycling HIIT | Cycling HIIT | 0 | 
+| Cycling HIIT | Cycling HIIT | 0 | 
+| Elle Fitness | Elle Fitness | 0 | 
+| Elle Fitness | Hybrid | 1 | 
+| Elle Strong | Elle Strong | 0 | 
+| Elle Strong | Antigravity Yoga | -- | 
+| Hybrid | Hybrid | 0 | 
+| Hybrid | Hybrid | 0 | 
+| Hybrid | Hybrid | 0 | 
+| Hybrid | Hybrid | 0 | 
+| Hybrid | Hybrid | 0 | 
+| Hybrid Max | Hybrid Max | 0 | 
+| Hybrid Max | Hybrid | 1 | 
+| Hyrox | Hyrox Force | -- | 
+| Hyrox | Strongman | -- | 
+| Inspired Ashtanga | Inspired Ashtanga | 0 | 
+| Inspired Ashtanga | Pilates | -- |
+| Pilates | Pilates | 0 | 
+| Pilates | Inspired Ashtanga  
+| RCVRI | RCVRI | 0 | 
+| RCVRI | RCVRI | 0 | 
+| Rig | Rig | 0 | 
+| Rig | Rig | 0 | 
+| Strongman | Strongman | 0 | 
+| Strongman | Strongman | 0 | 
+| Yin Yan Yoga | Yin Yan Yoga | 0 | 
+| Yin Yan Yoga | Yin Yan Yoga | 0 | 
+| Zumba | Zumba | 0 | 
+| Zumba | Zumba | 0 | 
+
+
+First Match:  74.47%
 
 </details>
 
@@ -142,13 +106,15 @@ First Match: 74.47%
 *** Work in progress ***
 
 ## Architecture
+The architecture consists basically of two pieces: a FastAPI to handle the user interface (including the reporting sections) and the Postgres database to store both the documents and the tracking information. 
 
+The pgvector extension for Postgres has been used for simplicity. Instead of using Elasticsearch, Pinecode or any other, Postgres is capable of storing the embedding next to the documents and perform the semantic search.
 
 <img width="841" height="581" alt="image" src="https://github.com/user-attachments/assets/81caf5b1-7e2c-431c-834a-7d801df05dae" />
 
-
-*** Work in progress ***
-
+The user interface has been created using plain HTML and Javascript. 
+The communication with the backend server running on the FastAPI server is using a REST API with requests and responses using JSON.
+Finally, the backend is written in Python. The communication with the database is using SQLAlchemy.
 
 ## Monitoring
 A few views have been created to display the collected information. Each LLM request is being registered in the database: timestamp, model, tag, tokens used ... The information is sent to a Postgres table. 
@@ -157,12 +123,12 @@ In the future this information might feed a tool like Langfuse or being monitore
 ### Expenses
 Displays the token usage. The different models used are included. There is no real cost displayed because free layers are being used.
 
-**Note**: On August 14th, I read about llama-3.3-70b-versatile being sunset in Groq and so I started testing with openai/gpt-oss-20b and openai/gpt-oss-120b models as can be seen on the screnshot.
+**Note**: On August 14th, I read about llama-3.3-70b-versatile being sunset in Groq and so I started testing with openai/gpt-oss-20b and openai/gpt-oss-120b models as can be seen on the screenshot.
 
 <img width="1386" height="821" alt="image" src="https://github.com/user-attachments/assets/8b00cb31-bd4b-41aa-be68-120541ca2404" />
 
 ### Performance
-The user can evaluate the quality of the answer provided. This view provides information about the scoring when users avaluate the response provided.
+The user can evaluate the quality of the answer provided. This view provides information about the scoring when users give feedback for the response provided.
 
 <img width="1386" height="822" alt="image" src="https://github.com/user-attachments/assets/ae08e289-be04-4b68-a4f3-f330ac508e62" />
 
@@ -177,18 +143,18 @@ A detail view shows all the messages sent and the response received for each LLM
 
 ### Prompts
 Instead of hardcoding the prompt in the code or in a configuration file, they are being stored in a table in the database. Prompts can not be modified once stored but a new version can be created. 
-Each tool has its own tag and LLM model. And each tag is associated to a different prompt. The idea is being able to use the most apropriate LLM for each task.
+Each tool has its own tag and LLM model. And each tag is associated to a different prompt. The idea is being able to use the most appropriate LLM for each task.
 
 The tool is prepared to manage the prompts so they can be audited later. This part is a "work in progress" and currently the tool does not allow to version or activate/deactivate a prompt.
 
 <img width="1387" height="380" alt="image" src="https://github.com/user-attachments/assets/e1f31722-4a5d-4909-ae3a-b37ecabd6e98" />
 
 ## Future Improvements
-### Prioritary
+### Priority
 - Adding roles. Currently the tool is just prepared for a single user. The administrative views should not be available for an end user.
-- Adding Grafana. The application collects information about each request received by the user: prompt, response, how many tokens where consumed ... This information is stored in a database and displayed using simple charts. Adding Grafana would improve data visualization.
+- Adding Grafana. The application collects information about each request received by the user: prompt, response, how many tokens where consumed ... This information is stored in a database and displayed using simple charts. Adding Grafana would improve data visualisation.
 ### Secondary
 - Providing a user interface to create version prompts from inside the tool
 ### Nice to have
-- Being able to sort the tables.
+- Being able to sort/filter the tables using different criteria.
  
