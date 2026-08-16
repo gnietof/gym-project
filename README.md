@@ -54,6 +54,7 @@ The Postgres database includes several tables:
 |---|---|----|
 | gym | activities | Description of each of the activities including the embedded vectors |
 | gym | schedule | Schedule of each of the activities along the week |
+| gym | questions | Questions used for evaluation |
 | llm | prompts | The prompts which are used by the agent. |
 | log | usage | This table stores each request which has been sent to the LLM's. The contents are then used for building the dashboards. |
 
