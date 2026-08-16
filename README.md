@@ -20,6 +20,11 @@ https://github.com/user-attachments/assets/5dc8aaed-4432-4839-9731-a676e89ac8f1
 
 <img width="1381" height="821" alt="image" src="https://github.com/user-attachments/assets/825cfcd8-d5f4-463d-b0f7-55f3b64dffdc" />
 
+The sessions agent is capable of displaying the information following user requirements.
+
+<img width="728" height="775" alt="image" src="https://github.com/user-attachments/assets/69a5a619-f740-4511-a1f8-4430be84000d" />
+
+
 ## Problem
 When a user first joins a gym, such as the one this project is focused on which offers more than 50 different guided activities, it is complex to understand which are the characteristics, the benefits (or contraindications) or the objectives for each of them. On top of this, the gym has a schedule with up to 250 weekly slots which change over time.
 
@@ -53,6 +58,7 @@ docker compose up
 
 ### Database
 The Postgres database includes several tables:
+
 | Schema | Table | Description |
 |---|---|----|
 | gym | activities | Description of each of the activities including the embedded vectors |
@@ -73,7 +79,6 @@ Using semantic search for this set of questions the hit rate was 74%. Although '
 <details>
 <summary>Output detail</summary>
 For each question, five documents where retrieved using semantic search. If the expected activity was included in one of the returned documents it was included. Only if the first document matched the expected one was counted as a hit.  
-
 
 | Expected | Returned | Found position? |
 |----------|----------|----------|
@@ -209,10 +214,10 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 
 ## Future Improvements
 ### Priority
-- Adding 'memory'. While the application generates a session id, each question has no previous context. By storing previous messages in a conversation more complex conversations will be available.
+- Adding 'memory'. While the application generates a session id, each question has no previous context. By storing previous messages in a conversation more complex interactions will be possible.
 - Using additional fields for each activity (intensity, difficulty, use of weights ...) to further refine the search of the activities. 
 - Adding roles. Currently the tool is just prepared for a single user. The administrative views should not be available for an end user.
-- Adding Grafana. The application collects information about each request received by the user: prompt, response, how many tokens where consumed ... This information is stored in a database and displayed using simple charts. Adding Grafana would improve data visualisation.
+- Adding Grafana. The application collects information about each request received by the user: timestamp, prompt, model, response, how many tokens where consumed ... This information is stored in a database and displayed using simple charts. Adding Grafana would improve data visualisation.
 ### Secondary
 - Providing a user interface to create version prompts from inside the tool
 ### Nice to have
