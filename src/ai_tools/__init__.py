@@ -1,5 +1,5 @@
-from tools.gym_activities import retrieve_gym_activities
-from tools.gym_sessions import retrieve_gym_sessions
+from ai_tools.gym_activities import retrieve_gym_activities
+from ai_tools.gym_sessions import retrieve_gym_sessions
 
 tools_mapping = {
     "gym_activities": retrieve_gym_activities,

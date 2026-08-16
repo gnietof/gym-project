@@ -14,26 +14,26 @@
   <body>
     <div id="nav-placeholder" data-tab=""welcome"></div>    
 
-<section class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8 bg-light p-4 rounded">
-      <pre
-        id="result"
-        class="chat-container"
-        style="white-space: pre-wrap;"
-      ></pre>
-      <form id="chatForm">
-        <textarea
-          rows="4"
-          id="question"
-          name="question"
-          placeholder="Ask/Pregunta"
-          style = "width:100%"
-        ></textarea>
-      </form>
-    </div>
-  </div>
-</section>
+    <section class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 bg-light p-4 rounded">
+          <pre
+            id="result"
+            class="chat-container"
+            style="white-space: pre-wrap;"
+          ></pre>
+          <form id="chatForm">
+            <textarea
+              rows="4"
+              id="question"
+              name="question"
+              placeholder="Ask/Pregunta"
+              style = "width:100%"
+            ></textarea>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <script>
       let id = undefined;
@@ -51,12 +51,14 @@
           event.preventDefault();
 
           const question = document.getElementById("question").value;
+          const container = document.getElementById("result")
 
           const divSend = document.createElement("div");
           divSend.classList.add("message", "right");
           divSend.textContent = question;
 
-          document.getElementById("result").append(divSend);
+          container.append(divSend);
+          container.scrollTop = container.scrollHeight;
 
           const formData = new FormData();
           formData.append("question", question);
@@ -86,26 +88,23 @@
           divTrack.classList.add("d-flex","justify-content-center","align-items-center");
 
           const btnUp = document.createElement("span");
-          // btnUp.classList = "vote-btn"
-          btnUp.style.cursor = "pointer";
-          btnUp.style.fontSize = "28px"; 
-          btnUp.style.userSelect = "none";  
+          btnUp.classList = "vote-btn"
           btnUp.innerHTML= "👍";
           btnUp.dataset.track = track;
           btnUp.dataset.mode = "up";
           btnUp.addEventListener("click", (event) => handleVoteCall(event));
           const btnDown = document.createElement("span");
-          // btnDown.classList = "vote-btn"
-          btnDown.style.cursor = "pointer";
-          btnDown.style.fontSize = "28px"; 
-          btnDown.style.userSelect = "none";  
+          btnDown.classList = "vote-btn"
           btnDown.innerHTML= "👎";
           btnDown.dataset.track = track;
           btnDown.dataset.mode = "down";
           btnDown.addEventListener("click", (event) => handleVoteCall(event));
           divTrack.appendChild(btnUp);
           divTrack.appendChild(btnDown);
-          document.getElementById("result").append(divTrack);
+
+          container.append(divTrack);
+          container.scrollTop = container.scrollHeight;
+          
         });
       });
 

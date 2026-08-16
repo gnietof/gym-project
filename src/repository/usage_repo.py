@@ -11,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 class UsageTrack:
     def __init__(self, db: Session, id: str):
-        self.id = id
         self.db = db
+        self.id = id
 
     def track_create(
         self,

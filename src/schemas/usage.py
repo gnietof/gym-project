@@ -20,7 +20,7 @@ class Usage(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     provider: Mapped[str] = mapped_column(String(50), nullable=False)
     model: Mapped[str] = mapped_column(String(50), nullable=False)
-    prompt: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    prompt: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=True)
 
     session: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True))
     track: Mapped[uuid.UUID] = mapped_column(

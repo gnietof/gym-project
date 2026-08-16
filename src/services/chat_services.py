@@ -3,10 +3,10 @@ import logging
 
 from ai_services.gemini import count, embed
 from ai_services.groq import create
+from ai_tools import tools_mapping, tools_schema
 from repository.activity_repo import vector_search
 from repository.propmpt_repo import get_prompt_by_tag
 from repository.usage_repo import UsageScore, UsageTrack
-from tools import tools_mapping, tools_schema
 
 LLAMA31_8B = "llama-3.1-8b-instant"
 LLAMA33_70B = "llama-3.3-70b-versatile"
@@ -22,16 +22,35 @@ async def score_answer(track: str, mode: str, db: any):
     usage_score.update_score(track, mode)
 
 
-async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_120B):
+async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_20B):
     """
     This is the agentic search version which includes both activities and scheduled sessions
     """
 
     usage_track = UsageTrack(db, id)
 
-    tag = "gym_assistant"
+    prompt = get_prompt_by_tag(db, "gym_assistant")
 
-    prompt = get_prompt_by_tag(db, tag)
+    # prompt = Prompt(
+    #     prompt=uuid.uuid4(),
+    #     tag=tag,
+    #     template="""
+    #         You are an intelligent Gym Operations Assistant. You have access to two tools:
+    #         1) "gym_activities" to understand activity details using RAG, and
+    #         2) "gym_schedule" to fetch timetable sessions from SQL.
+    #         If a user asks about what an activity is or what exercises or characteristics, use the RAG tool.
+    #         If they ask when they are scheduled, use the SQL schedule tool.
+    #         Combine tools if they ask about both.
+    #         When answering questions that require filtering by a trait (e.g., "strength", "cardio") follow this strict workflow:
+    #         1) Call the RAG tool first to identify which activity names match the requested trait .
+    #         2) Carefully read the text returned by the RAG tool and extract ONLY the exact names of those activities.
+    #         3) Pass those extracted activity names—and nothing else—to the schedule tool.
+    #         Do not pass descriptions, sentences, or conversational filler into the schedule tool parameters.
+    #         If you do not know the answer say "I do not know". Do not provide content outside of these tools.
+    #         Do not answer questions not related with gyn activities.
+    #       """,
+    # )
+
     if not prompt:
         logger.warning("Prompt not found.")
         return ""
@@ -49,7 +68,7 @@ async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_120B):
     while run_loop and loop_count < loop_max:
         loop_count += 1
 
-        response = create(messages, model, tag, tools_schema)
+        response = create(messages, model, prompt.tag, tools_schema)
         track = usage_track.track_create(
             model,
             f"{prompt.tag}-{loop_count}",
@@ -71,7 +90,7 @@ async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_120B):
 
                 target_tool = tools_mapping[tool_name]
                 if target_tool:
-                    tool_output = target_tool(tool_args)
+                    tool_output = target_tool(db, id, model, tool_args)
                     print(f"\n{tool_output}")
 
                     messages.append(
@@ -89,13 +108,12 @@ async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_120B):
             final_answer = message.content
             final_track = track
 
-    # return final_answer, final_usage.track
     return final_answer, final_track
 
 
 async def ask_question(id: str, question: str, db: any, model=LLAMA31_8B) -> str:
     """
-    This is the simple semantic search version
+    This is the simple semantic search version. No longer used in the application.
     """
 
     usage_track = UsageTrack(db, id)
@@ -106,7 +124,7 @@ async def ask_question(id: str, question: str, db: any, model=LLAMA31_8B) -> str
     response = embed(question, model)
     if not response:
         logger.error("Question embedding failed.")
-        return "Sorry, could not find matching context for that question."
+        return "Sorry, could not find matching context for that question (embedding)."
     usage_track.track_embed(model, "embed_text", question, tokens, response)
 
     # Document search using the generated embedding
@@ -114,7 +132,7 @@ async def ask_question(id: str, question: str, db: any, model=LLAMA31_8B) -> str
     descriptions = vector_search(db, query_vector)
     if not descriptions:
         logger.warning("Search did not return any documents.")
-        return "Sorry, could not find matching context for that question."
+        return "Sorry, could not find matching context for that question (search)."
 
     # Build context with retrieved documents
     context = []

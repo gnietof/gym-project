@@ -3,7 +3,7 @@ import json
 import logging
 
 from ai_services.groq import create
-from tools import tools_mapping, tools_schema
+from ai_tools import tools_mapping, tools_schema
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

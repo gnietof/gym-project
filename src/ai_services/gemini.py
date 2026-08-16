@@ -40,29 +40,8 @@ def embed(contents: str, model) -> list[float]:
             contents=contents,
             config=types.EmbedContentConfig(output_dimensionality=1536),
         )
-        # embedding_vector = response.embeddings[0].values
 
     except errors.APIError as e:
         logger.info(f"Exception while calling LLM embed: {e}")
 
-    # try:
-    #     with SessionLocal() as session:
-    #         usage = Usage(
-    #             provider="GEMINI",
-    #             model=model,
-    #             messages_sent=contents,
-    #             tools_provided=[],
-    #             response_received=response.model_dump(),
-    #             tag="embed_text",
-    #             prompt_tokens=tokens_used,
-    #             completion_tokens=0,
-    #             total_tokens=tokens_used,
-    #         )
-    #         session.add(usage)
-    #         session.commit()
-
-    # except SQLAlchemyError as e:
-    #     logger.info(f"Exception while storing LLM call in database: {e}")
-
-    # return embedding_vector
     return response

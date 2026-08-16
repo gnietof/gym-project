@@ -35,7 +35,6 @@ def create(messages: list[dict], model: str, tag: str, tools=None) -> any:
         response = client.chat.completions.create(
             messages=messages, model=model, tools=tools, temperature=0.1
         )
-        # answer = response.choices[0].message.content
     except APIConnectionError as e:
         logger.info(f"Exception while connecting with Groq: {e}")
     except APIStatusError as e:
