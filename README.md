@@ -9,8 +9,12 @@ Then the tool was refactored so that an agent was evaluating the questions and t
 Keyword search has not been used in this project. Many similar words are used to describe activities and the documents returned where not providing the right answers.
 
 ## Demo
+The short demo below shows three examples. 
+1. A question which only requires help from the activities tool.
+2. A question which only requires help from the sessions tool.
+3. A final question which requires help from both tools in sequence.
 
-*** Work in progress ***
+https://github.com/user-attachments/assets/5dc8aaed-4432-4839-9731-a676e89ac8f1
 
 **Note**: The tool has a 'WhatsApp-like' look because the interface is being migrated to WhatsApp. Although I have already 'migrated' other AI tools to WhatsApp, this is still a "work in progress" for this project.
 
