@@ -108,7 +108,7 @@ For each question, five documents where retrieved using semantic search. If the 
 | Inspired Ashtanga | Inspired Ashtanga | 0 | 
 | Inspired Ashtanga | Pilates | -- |
 | Pilates | Pilates | 0 | 
-| Pilates | Inspired Ashtanga  
+| Pilates | Inspired Ashtanga | -- |
 | RCVRI | RCVRI | 0 | 
 | RCVRI | RCVRI | 0 | 
 | Rig | Rig | 0 | 
@@ -121,7 +121,9 @@ For each question, five documents where retrieved using semantic search. If the 
 | Zumba | Zumba | 0 | 
 
 
-First Match:  74.47%
+Matched 0: 74.47%
+Matched 1:  8.51%
+Matched 2:  4.26%
 
 </details>
 
