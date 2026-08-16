@@ -32,7 +32,30 @@ This application has been prepared to be deployed using Docker Compose.
 ### Full Setup
 The application uses two containers, one for Postgres and another one for FastAPI.
 
+The repository includes:
+- The Dockerfile required to build the FastAPI container. The Dockerfile retrieves code directly from the Github repository. Small adjustments will be required to use a local replica.
+- The doker-compose.yml which allows starting/stopping both containers in sync.
+- A backup of the Postgres database which contains all the tables required. This backup is 'automagically' restored into Postgres first time the server is started.
 
+Use this commands below for building and starting the containers. If directly accessing Github, the SSH keys for authentication should be available in ~/.ssh.
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+env SSH_AUTH_SOCK=$SSH_AUTH_SOCK docker compose build --build-arg CACHE_BUST=$(date +%s) web 
+
+docker compose up 
+
+```
+
+### Database
+The Postgres database includes several tables:
+| Schema | Table | Description |
+|---|---|----|
+| gym | activities | Description of each of the activities including the embedded vectors |
+| gym | schedule | Schedule of each of the activities along the week |
+| llm | prompts | The prompts which are used by the agent. |
+| log | usage | This table stores each request which has been sent to the LLM's. The contents are then used for building the dashboards. |
 
 ## Evaluation
 
@@ -108,13 +131,21 @@ First Match:  74.47%
 ## Architecture
 The architecture consists basically of two pieces: a FastAPI to handle the user interface (including the reporting sections) and the Postgres database to store both the documents and the tracking information. 
 
-The pgvector extension for Postgres has been used for simplicity. Instead of using Elasticsearch, Pinecode or any other, Postgres is capable of storing the embedding next to the documents and perform the semantic search.
+The pgvector extension for Postgres has been used for simplicity. Instead of using Elasticsearch, Pinecode or any other, by using this extension, Postgres is capable of storing the embedding next to the documents and perform the semantic search.
 
 <img width="841" height="581" alt="image" src="https://github.com/user-attachments/assets/81caf5b1-7e2c-431c-834a-7d801df05dae" />
 
 The user interface has been created using plain HTML and Javascript. 
-The communication with the backend server running on the FastAPI server is using a REST API with requests and responses using JSON.
+The communication with the backend server running on the FastAPI server is using a REST API with requests and responses using JSON. FastAPI listens on port 8000.
 Finally, the backend is written in Python. The communication with the database is using SQLAlchemy.
+
+### Agentic AI
+Initially, this tool just used semantic search for finding those activities which matched the provided question.
+Later a new table including the schedule of each activity in the gym was added to the database. 
+So, the initial semantic search was refactored into a tool which was capable of retrieving documents.
+A second tool was added which was capable of finding scheduled activities. This tool does not use semantic search. The LLM generates a SQL query which retrieves the required information from the database.  
+<img width="533" height="312" alt="image" src="https://github.com/user-attachments/assets/95d22ea6-5579-4692-a2db-4bf2126cb3ba" />  
+When a question arrives, the Agent checks which tool would be the most appropriate for returning the required information. If both are required, multiple tool calls are executed until the Agent has enough information to generate an answer.
 
 ## Monitoring
 A few views have been created to display the collected information. Each LLM request is being registered in the database: timestamp, model, tag, tokens used ... The information is sent to a Postgres table. 
@@ -151,6 +182,8 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 
 ## Future Improvements
 ### Priority
+- Adding 'memory'. While the application generates a session id, each question has no previous context. By storing previous messages in a conversation more complex conversations will be available.
+- Using additional fields for each activity (intensity, difficulty, use of weights ...) to further refine the search of the activities. 
 - Adding roles. Currently the tool is just prepared for a single user. The administrative views should not be available for an end user.
 - Adding Grafana. The application collects information about each request received by the user: prompt, response, how many tokens where consumed ... This information is stored in a database and displayed using simple charts. Adding Grafana would improve data visualisation.
 ### Secondary
