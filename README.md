@@ -1,10 +1,10 @@
 # Gym Assistant
 While other gym assistants focus on the proper way of performing different activities, this one on the other hand is focused on guiding the user to know more about each of the available guided activities.
 
-Initially, this tool was only able to answer RAG question on a corpus of information about different guided activities in a gym. 
+Initially, this tool was only able to answer RAG questions on a corpus of information about different guided activities in a gym. 
 Then the tool was refactored so that an agent was evaluating the questions and tried to answer them by using two different tools: 
 - gym_activities: this one is using RAG to extract information about activities.
-- gym_sessions: up to 254 scheduled sessions for 51 different activities have been added to the database. In this case, the LLM writes the SQL queries to retrieve the required information.
+- gym_sessions: up to 254 scheduled sessions for 51 different activities have been added to the database. In this case, the LLM writes the SQL queries required to retrieve the information from the database.
 
 Keyword search has not been used in this project. Many similar words are used to describe activities and the documents returned where not providing the right answers.
 
@@ -23,7 +23,6 @@ https://github.com/user-attachments/assets/5dc8aaed-4432-4839-9731-a676e89ac8f1
 The sessions agent is capable of displaying the information following user requirements.
 
 <img width="728" height="775" alt="image" src="https://github.com/user-attachments/assets/69a5a619-f740-4511-a1f8-4430be84000d" />
-
 
 ## Problem
 When a user first joins a gym, such as the one this project is focused on which offers more than 50 different guided activities, it is complex to understand which are the characteristics, the benefits (or contraindications) or the objectives for each of them. On top of this, the gym has a schedule with up to 250 weekly slots which change over time.
@@ -200,9 +199,11 @@ The picture below shows a single session where the agent has executed three loop
 
 <img width="1387" height="318" alt="image" src="https://github.com/user-attachments/assets/39ff6b04-2856-43c1-844e-9da37a60252f" />
 
-A detail view shows all the messages sent and the response received for each LLM request. Any request which has been scored is highlighted in green or red.
+A detail view shows all the messages sent and the response received for each LLM request. Any request which has been scored is highlighted in green or red. 
 
 <img width="1388" height="819" alt="image" src="https://github.com/user-attachments/assets/14af4df9-45f5-4212-8029-090256716971" />
+
+**Note**: LLM requests which are part of the reasoning cannot be scored.
 
 ### Prompts
 Instead of hardcoding the prompt in the code or in a configuration file, they are being stored in a table in the database. Prompts can not be modified once stored but a new version can be created. 
