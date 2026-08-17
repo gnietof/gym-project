@@ -1,0 +1,284 @@
+[
+  {
+    "question": "Which activity involves performing advanced stretching and inversions without compressing the spine or putting pressure on the joints?",
+    "answer": "Antigravity Yoga, also known as Aerial Yoga, utilizes a soft fabric hammock suspended from the ceiling to support the body's weight, allowing participants to perform advanced stretching and inversions without compressing the spine or putting pressure on the joints.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes Antigravity Yoga, also known as Aerial Yoga, and its primary benefit of allowing participants to perform advanced stretching and inversions without compressing the spine or putting pressure on the joints, which is mentioned in the provided context."
+  },
+  {
+    "question": "Which activity is contraindicated for individuals with high blood pressure due to frequent inverted positions?",
+    "answer": "Antigravity Yoga.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer is correct because Antigravity Yoga is indeed one of the classes mentioned in the context, and it matches the description provided in the question."
+  },
+  {
+    "question": "Is there any yoga activity which is contraindicated for high blood pressure participants?",
+    "answer": "Yes, Antigravity Yoga is contraindicated for individuals with high blood pressure due to frequent inverted positions.",
+    "evaluation": "MEDIUM",
+    "arguments": "The answer is partially correct. Antigravity Yoga is contraindicated for individuals with high blood pressure, but the reason provided is not the only reason. The answer does not mention the other contraindications mentioned in the context, such as glaucoma and pregnancy."
+  },
+  {
+    "question": "Does any yoga activity involve performing advanced stretching and inversions without compressing the spine or putting pressure on the joints?",
+    "answer": "Yes, Antigravity Yoga utilizes a soft fabric hammock suspended from the ceiling to support the body's weight, allowing participants to perform advanced stretching and inversions without compressing the spine or putting pressure on the joints.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the use of a soft fabric hammock in Antigravity Yoga to support the body's weight, allowing for advanced stretching and inversions without compressing the spine or putting pressure on the joints, which is consistent with the provided context."
+  },
+  {
+    "question": "Does any activity involve performing advanced stretching and inversions without compressing the spine or putting pressure on the joints?",
+    "answer": "Yes, Antigravity Yoga involves performing advanced stretching and inversions without compressing the spine or putting pressure on the joints, as it utilizes a soft fabric hammock to support the body's weight.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the primary benefit of Antigravity Yoga, which is to perform advanced stretching and inversions without compressing the spine or putting pressure on the joints, as stated in the provided context."
+  },
+  {
+    "question": "Is there any activity that is contraindicated for pregnant participants due to frequent inverted positions?",
+    "answer": "Yes, Antigravity Yoga is contraindicated for pregnant participants due to frequent inverted positions.",
+    "evaluation": "NEGATIVE",
+    "arguments": "The answer is partially correct, but it does not fully address the contraindications listed for Antigravity Yoga. According to the context, pregnant participants should avoid Antigravity Yoga due to frequent inverted positions, but the answer only mentions one of the contraindications listed."
+  },
+  {
+    "question": "Which fitness class features rapid transitions between aerobic and strength intervals?",
+    "answer": "The Bootcamp fitness class features rapid transitions between aerobic and strength intervals.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the Bootcamp fitness class, which features rapid transitions between aerobic and strength intervals, as stated in the description of the Bootcamp class."
+  },
+  {
+    "question": "Which group fitness class incorporates team building or partner activities?",
+    "answer": "Bootcamp incorporates team building or partner activities to foster accountability.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately reflects the description of Bootcamp, which mentions that it often incorporates team building or partner activities to foster accountability."
+  },
+  {
+    "question": "Which class involves using functional equipment training like sandbags and battle ropes?",
+    "answer": "The Bootcamp class involves using functional equipment training like sandbags and battle ropes.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately states that the Bootcamp class involves functional equipment training, specifically mentioning sandbags and battle ropes as examples."
+  },
+  {
+    "question": "Which fitness class is military-style?",
+    "answer": "The Bootcamp fitness class is military-style.",
+    "evaluation": "POSITIVE",
+    "arguments": "The description of Bootcamp mentions that it 'mimics basic military training structures' to create a high-bonding environment, which supports the statement that it is military-style."
+  },
+  {
+    "question": "Which class is known for its high group/team environment?",
+    "answer": "The following classes are known for their high group/team environment:\n\n1. Team WOD\n2. Bootcamp\n3. Hyrox Community",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately identifies Team WOD, Bootcamp, and Hyrox Community as classes with a high group/team environment, as stated in their respective descriptions."
+  },
+  {
+    "question": "Which fitness class includes burpees, push-ups, and planks in its programming?",
+    "answer": "The fitness class that includes burpees, push-ups, and planks in its programming is the Bootcamp class.",
+    "evaluation": "POSITIVE",
+    "arguments": "The description of the Bootcamp class mentions that it features rapid transitions between aerobic and strength intervals, including bodyweight exercises such as burpees, push-ups, and planks. This matches the information provided in the answer."
+  },
+  {
+    "question": "Which class is designed to create a high-bonding environment?",
+    "answer": "The Hyrox Community class is designed to create a high-bonding environment due to its high partner/team environment.",
+    "evaluation": "POSITIVE",
+    "arguments": "The Hyrox Community class description mentions 'High partner / team environment' as its social dynamic, which aligns with the statement that it is designed to create a high-bonding environment due to its high partner/team environment."
+  },
+  {
+    "question": "Which fitness class is fast and challenging?",
+    "answer": "Bootcamp is a fitness class that is described as \"fast, challenging, and often incorporates team building or partner activities to foster accountability.\"",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes Bootcamp as a 'fitness class that is described as fast, challenging, and often incorporates team building or partner activities to foster accountability.' This description is directly taken from the provided context, making the answer correct."
+  },
+  {
+    "question": "Which class is often associated with fat loss and full-body conditioning?",
+    "answer": "A military-style group fitness class that features rapid transitions between aerobic and strength intervals, known as the \"Bootcamp\", is often associated with fat loss and full-body conditioning.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the Bootcamp class, mentioning its military-style format, rapid transitions between aerobic and strength intervals, and its primary benefit of fat loss and full-body conditioning."
+  },
+  {
+    "question": "Which group fitness class is not recommended for those with severe spinal issues or wrist pain?",
+    "answer": "Bootcamp is not recommended for those with severe spinal issues or wrist pain.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately states the contraindications for Bootcamp, specifically mentioning severe spinal issues and wrist pain as reasons to avoid the class."
+  },
+  {
+    "question": "Does any activity involve max-effort sprints followed by brief rest intervals on a stationary bike?",
+    "answer": "Yes, Cycling HIIT involves max-effort sprints (such as 20\u201330 seconds of flat-out pedaling at maximum resistance) followed by brief rest intervals.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the characteristics of Cycling HIIT, which is a High-Intensity Interval Training (HIIT) workout that involves max-effort sprints followed by brief rest intervals. This is consistent with the description provided in the context."
+  },
+  {
+    "question": "Is there any activity that can cause your metabolism to remain highly elevated and burn extra fat for up to 24 hours after finishing a session?",
+    "answer": "Yes, according to the context, a 30-minute Cycling HIIT class can cause your metabolism to remain highly elevated and burn extra fat for up to 24 hours after finishing the session due to EPOC.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer is accurate as it directly references the 'Interesting fact' section of the Cycling HIIT description, which states that due to EPOC, your metabolism remains highly elevated and burns extra fat for up to 24 hours after finishing a 30-minute Cycling HIIT class."
+  },
+  {
+    "question": "Does any activity involve max-effort sprints followed by brief rest intervals on a stationary bike?",
+    "answer": "Yes, Cycling HIIT involves max-effort sprints (such as 20\u201330 seconds of flat-out pedaling at maximum resistance) followed by brief rest intervals.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the characteristics of Cycling HIIT, which is a High-Intensity Interval Training (HIIT) workout that focuses on max-effort sprints followed by brief rest intervals. This matches the description provided in the context."
+  },
+  {
+    "question": "Is there any activity that can cause your metabolism to remain highly elevated and burn extra fat for up to 24 hours after finishing a session?",
+    "answer": "Yes, according to the context, a 30-minute Cycling HIIT class can cause your metabolism to remain highly elevated and burn extra fat for up to 24 hours after finishing the session due to EPOC.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer is supported by the 'Interesting fact' section of the Cycling HIIT description, which states that due to EPOC, your metabolism remains highly elevated and burns extra fat for up to 24 hours after finishing a 30-minute Cycling HIIT class."
+  },
+  {
+    "question": "Which activity emphasizes lean muscle stamina, metabolic speed, and a highly supportive group atmosphere?",
+    "answer": "Elle Fitness emphasizes lean muscle stamina, metabolic speed, and a highly supportive group atmosphere.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the primary benefits of Elle Fitness, which are 'lean muscle stamina, metabolic speed, and a highly supportive group atmosphere'. This matches the information provided in the context."
+  },
+  {
+    "question": "Is there any activity structuring its pacing to deliver an athletic, full-body sweat without overloading vulnerable connective joints?",
+    "answer": "Elle Fitness structures its pacing to deliver an athletic, full-body sweat without overloading vulnerable connective joints.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately reflects the information provided in the context about Elle Fitness, specifically its pacing and goal of delivering a full-body sweat without overloading joints."
+  },
+  {
+    "question": "Which activity ditches high-impact cardio jumping, focusing instead on progressive compound lifting, muscle hypertrophy, and structural form?",
+    "answer": "Elle Strong ditches high-impact cardio jumping, focusing instead on progressive compound lifting, muscle hypertrophy, and structural form.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the main focus of Elle Strong, which is to ditch high-impact cardio jumping and focus on progressive compound lifting, muscle hypertrophy, and structural form."
+  },
+  {
+    "question": "Which activity requires proper form tracking for individuals with pre-existing spinal herniations?",
+    "answer": "I do not know.",
+    "evaluation": "NEGATIVE",
+    "arguments": "The answer does not accurately address the question. The provided context includes descriptions of various fitness classes, but the question is not answered with a specific class name or description. The answer 'I do not know' is a valid response in a general sense, but it does not demonstrate an understanding of the context or the ability to identify a relevant class."
+  },
+  {
+    "question": "What type of training involves alternating between structural barbell or dumbbell lifting blocks and intense cardiovascular conditioning blocks?",
+    "answer": "This type of training is called Hybrid.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer is directly mentioned in the description of the 'Hybrid' class, which states that it is a contemporary fitness class that combines strength training and cardiovascular endurance within a single session."
+  },
+  {
+    "question": "What fitness class combines strength training and cardiovascular endurance within a single session, designed to build an athletic, well-rounded physique?",
+    "answer": "The fitness class that combines strength training and cardiovascular endurance within a single session, designed to build an athletic, well-rounded physique is called Hybrid.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the Hybrid fitness class as combining strength training and cardiovascular endurance within a single session, and its primary benefit is building an athletic, well-rounded physique."
+  },
+  {
+    "question": "Which activity combines strength training and cardiovascular endurance within a single session?",
+    "answer": "Hybrid. It combines strength training and cardiovascular endurance within a single session.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the Hybrid class as combining strength training and cardiovascular endurance within a single session, matching the description provided in the context."
+  },
+  {
+    "question": "Which activity is the fastest-growing sector in modern fitness, mirroring the functional demands of everyday life?",
+    "answer": "Hybrid training is the fastest-growing sector in modern fitness, mirroring the functional demands of everyday life.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately states that Hybrid training is the fastest-growing sector in modern fitness, mirroring the functional demands of everyday life, which is mentioned in the context under the 'Interesting fact' section of the Hybrid description."
+  },
+  {
+    "question": "Does any activity involve alternating between structural barbell or dumbbell lifting blocks and intense cardiovascular conditioning blocks?",
+    "answer": "Yes, the Hybrid activity involves alternating between structural barbell or dumbbell lifting blocks (such as heavy lunges or rows) and intense cardiovascular conditioning blocks (like running, rowing, or skiing).",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the Hybrid activity as combining strength training and cardiovascular endurance, with alternating blocks of structural lifting and intense cardiovascular conditioning."
+  },
+  {
+    "question": "Is there any activity that is designed for seasoned athletes or high-level fitness enthusiasts looking to push their aerobic and anaerobic thresholds to their absolute limits?",
+    "answer": "Yes, the Hybrid Max class is designed for seasoned athletes or high-level fitness enthusiasts looking to push their aerobic and anaerobic thresholds to their absolute limits in a demanding, high-intensity environment.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately reflects the description of the Hybrid Max class, which is designed for seasoned athletes or high-level fitness enthusiasts looking to push their aerobic and anaerobic thresholds to their absolute limits in a demanding, high-intensity environment."
+  },
+  {
+    "question": "Does any activity involve heavier lifting targets, longer cardio blocks, and shorter recovery intervals?",
+    "answer": "Yes, Hybrid Max involves heavier lifting targets, longer cardio blocks, and shorter recovery intervals.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the key features of Hybrid Max, which are heavier lifting targets, longer cardio blocks, and shorter recovery intervals, as stated in the provided context."
+  },
+  {
+    "question": "Which activity combines explosive leg power with grip strength and core bracing under fatigue?",
+    "answer": "Hyrox Force combines explosive leg power with grip strength and core bracing under fatigue.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the primary benefit of Hyrox Force, which is a strength-focused class designed to tackle the heavy stations of the global competition. It isolates and targets the leg and core strength required for the heavy Sled Push, Sled Pull, Farmers Carry, and heavy Sandbag Lunges."
+  },
+  {
+    "question": "Any activity involves moving up to 175kg?",
+    "answer": "The Sled Push in Hyrox requires moving up to 175kg (including the sled).",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer is directly stated in the description of the Hyrox Force class, which is a relevant piece of information in the provided context."
+  },
+  {
+    "question": "Which activity features a specific, continuous sequence of postures synchronized with deep belly breathing (Ujjayi pranayama)?",
+    "answer": "A physically demanding, structured class inspired by traditional Ashtanga Yoga features a specific, continuous sequence of postures synchronized with deep belly breathing (Ujjayi pranayama).",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the Inspired Ashtanga class, mentioning its physical demands, structured nature, and inspiration from traditional Ashtanga Yoga. It also correctly identifies the synchronization of postures with deep belly breathing (Ujjayi pranayama)."
+  },
+  {
+    "question": "Is there an activity which requires complete mental control over every muscle group?",
+    "answer": "Yes, Pilates was originally called 'Contrology' by its creator, Joseph Pilates, because it requires complete mental control over every muscle group.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately states the original name of Pilates as 'Contrology' and provides the reason behind it, which is the requirement of complete mental control over every muscle group."
+  },
+  {
+    "question": "Which activity emphasizes core control and length rather than muscle bulk?",
+    "answer": "Pilates emphasizes core control and length rather than muscle bulk.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately reflects the primary focus of Pilates, which is to emphasize core control and length rather than muscle bulk, as stated in the description of Pilates in the provided context."
+  },
+  {
+    "question": "Which activity involves deep belly breathing (Ujjayi pranayama) other than Inspired Ashtanga?",
+    "answer": "I do not know.",
+    "evaluation": "NEGATIVE",
+    "arguments": "The answer does not accurately address the question. The question seems to be asking for a specific type of yoga or a class description, but the answer is simply 'I do not know.' The provided context includes descriptions of various yoga classes, but the answer does not reference any of them."
+  },
+  {
+    "question": "Which activity combines active mobility work, foam rolling, and guided breathing techniques to help the nervous system reset and muscles recover from intense training?",
+    "answer": "The activity that combines active mobility work, foam rolling, and guided breathing techniques to help the nervous system reset and muscles recover from intense training is the 'Recovery' class, also known as RCVRI.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the 'Recovery' class (RCVRI) as combining active mobility work, foam rolling, and guided breathing techniques to help the nervous system reset and muscles recover from intense training, matching the provided context."
+  },
+  {
+    "question": "Is there any activity that helps switch the nervous system from the \"fight or flight\" sympathetic state into the \"rest and digest\" parasympathetic state, accelerating muscle repair?",
+    "answer": "Yes, the 'Recovery' class (RCVRI) helps switch the nervous system from the 'fight or flight' sympathetic state into the 'rest and digest' parasympathetic state, accelerating muscle repair.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately quotes the 'Interesting fact' section of the 'Recovery' class description, which states that this class helps switch the nervous system from the 'fight or flight' sympathetic state into the 'rest and digest' parasympathetic state, accelerating muscle repair."
+  },
+  {
+    "question": "Which activity involves using suspension trainers on a structural rig to engage the core constantly?",
+    "answer": "Rig.",
+    "evaluation": "MEDIUM",
+    "arguments": "The answer 'Rig' is partially correct as it is a class mentioned in the context. However, it does not fully answer the question as the question seems to be asking for a class that is a type of 'Aerial Fitness' or 'Mind-Body & Holistic' category, which is not the case for 'Rig'. 'Antigravity Yoga' is a class that fits this category."
+  },
+  {
+    "question": "Is there any activity that blends strength and coordination in an engaging, athletic format, incorporating hanging movements and landmine presses?",
+    "answer": "Yes, there is an activity that blends strength and coordination in an engaging, athletic format, incorporating hanging movements and landmine presses. It is called \"Rig\".",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes the activity 'Rig' as blending strength and coordination in an engaging, athletic format, incorporating hanging movements and landmine presses, which matches the provided context."
+  },
+  {
+    "question": "Which activity involves lifting, carrying, and pushing heavy, unusual objects like stones, sandbags, logs, and axle barbells to build powerful core strength and explosive power?",
+    "answer": "Strongman.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer 'Strongman' directly matches the name of one of the classes described in the context, which is a strength class based on traditional Strongman training."
+  },
+  {
+    "question": "Is there any activity that strictly advises against participation for individuals with chronic lower back pain, disc issues, or severe joint degeneration?",
+    "answer": "Yes, the activity that strictly advises against participation for individuals with chronic lower back pain, disc issues, or severe joint degeneration is Strongman.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer is correct as it directly quotes the contraindications section of the Strongman description, which explicitly states to 'Strictly avoid if you have chronic lower back pain, disc issues, or severe joint degeneration'."
+  },
+  {
+    "question": "Is there any activity that combines active and passive styles, featuring an active, heat-building Vinyasa flow in the first half and passive, deep floor stretches in the second half?",
+    "answer": "Yes, there is an activity that combines active and passive styles. It is called Yin Yan Yoga. The first half of the class (the Yang) features an active, heat-building Vinyasa flow to strengthen muscles and improve circulation. The second half (the Yin) transitions to passive, deep floor stretches held for several minutes to target the deep connective tissues and fascia, promoting relaxation.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes Yin Yan Yoga, mentioning its combination of active and passive styles, the Yang and Yin phases, and the benefits of the practice. The description matches the provided context, making the answer correct."
+  },
+  {
+    "question": "Does any activity mirror the concept of duality, helping participants build physical strength while cultivating deep mental calmness?",
+    "answer": "Yes, Yin Yan Yoga mirrors the concept of duality, helping participants build physical strength while cultivating deep mental calmness.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately reflects the 'Interesting fact' section of the Yin Yan Yoga description, which states that this class mirrors the concept of duality, helping participants build physical strength while cultivating deep mental calmness."
+  },
+  {
+    "question": "Which activity is a high-energy, cardio dance class that features Latin and international music rhythms, mixing low-intensity and high-intensity moves into an interval-style dance party?",
+    "answer": "A high-energy, cardio dance class that features Latin and international music rhythms, mixing low-intensity and high-intensity moves into an interval-style dance party is Zumba.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately describes Zumba as a high-energy, cardio dance class that features Latin and international music rhythms, mixing low-intensity and high-intensity moves into an interval-style dance party."
+  },
+  {
+    "question": "Is there any activity that was created in Colombia during the 1990s when an instructor forgot his regular aerobics music and used his personal Latin music tapes instead?",
+    "answer": "Yes, Zumba was created in Colombia during the 1990s when an instructor forgot his regular aerobics music and used his personal Latin music tapes instead.",
+    "evaluation": "POSITIVE",
+    "arguments": "The answer accurately states the origin of Zumba, which is mentioned in the context as 'created in Colombia during the 1990s when an instructor forgot his regular aerobics music and used his personal Latin music tapes instead'."
+  }
+]
