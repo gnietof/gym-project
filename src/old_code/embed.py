@@ -1,4 +1,8 @@
-import asyncio
+"""
+This is an auxiliary module which was used in the early stages of this project
+to add the embeddings in the database and also do some testing.
+"""
+
 import logging
 
 from sqlalchemy import select
@@ -7,29 +11,8 @@ from ai_services.gemini import embed
 from ai_services.groq import create
 from common.db.database import SessionLocal
 from schemas.activity import Activity
-from schemas.question import Question
 
 logger = logging.getLogger(__name__)
-
-
-async def test_questions():
-    with SessionLocal() as db:
-        query = select(Question)
-        result = db.execute(query)
-
-        questions = result.scalars().all()
-
-    ok = 0
-    for question in questions:
-        documents = await semantic_search(question.question, 5)
-        print(f"{question.activity_name} -> {documents[0].activity_name}  ")
-        for i, document in enumerate(documents):
-            if question.activity_name == document.activity_name:
-                print(f"\t{i}: {question.activity_name} -> {document.activity_name}  ")
-                if i == 0:
-                    ok += 1
-
-    print(f"Matched: {100 * ok / len(questions):.2f}%")
 
 
 async def generate_emebddings():
@@ -114,6 +97,3 @@ async def ask_assistant(question: str, evaluation=False) -> str:
         messages = [{"role": "system", "content": eval_prompt}]
 
         evaluation = create(messages, "llama-3.1-8b-instant", "gym_assistant_eval", [])
-
-
-asyncio.run(test_questions())

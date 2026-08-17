@@ -1,3 +1,8 @@
+"""
+This module includes pieces of code which where used to move data from JSON files
+into the Postgres database
+"""
+
 import calendar
 import json
 import os

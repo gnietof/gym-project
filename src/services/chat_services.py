@@ -31,26 +31,6 @@ async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_20B):
 
     prompt = get_prompt_by_tag(db, "gym_assistant")
 
-    # prompt = Prompt(
-    #     prompt=uuid.uuid4(),
-    #     tag=tag,
-    #     template="""
-    #         You are an intelligent Gym Operations Assistant. You have access to two tools:
-    #         1) "gym_activities" to understand activity details using RAG, and
-    #         2) "gym_schedule" to fetch timetable sessions from SQL.
-    #         If a user asks about what an activity is or what exercises or characteristics, use the RAG tool.
-    #         If they ask when they are scheduled, use the SQL schedule tool.
-    #         Combine tools if they ask about both.
-    #         When answering questions that require filtering by a trait (e.g., "strength", "cardio") follow this strict workflow:
-    #         1) Call the RAG tool first to identify which activity names match the requested trait .
-    #         2) Carefully read the text returned by the RAG tool and extract ONLY the exact names of those activities.
-    #         3) Pass those extracted activity names—and nothing else—to the schedule tool.
-    #         Do not pass descriptions, sentences, or conversational filler into the schedule tool parameters.
-    #         If you do not know the answer say "I do not know". Do not provide content outside of these tools.
-    #         Do not answer questions not related with gyn activities.
-    #       """,
-    # )
-
     if not prompt:
         logger.warning("Prompt not found.")
         return ""
@@ -135,9 +115,7 @@ async def ask_question(id: str, question: str, db: any, model=LLAMA31_8B) -> str
         return "Sorry, could not find matching context for that question (search)."
 
     # Build context with retrieved documents
-    context = []
-    for description in descriptions:
-        context.append(description.full_description)
+    context = [description.full_description for description in descriptions]
     full_context = "\n\n---\n\n".join(context)
 
     tag = "gym_assistant"

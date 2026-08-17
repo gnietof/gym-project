@@ -35,20 +35,10 @@ def retrieve_gym_activities(db: any, id: str, model, question: str):
         return "Sorry, could not find matching context for that question."
 
     # Build context with retrieved documents
-    context = []
-    for description in descriptions:
-        context.append(description.full_description)
+    context = [description.full_description for description in descriptions]
     full_context = "\n\n---\n\n".join(context)
 
     prompt = get_prompt_by_tag(db, "gym_activities_create")
-
-    # prompt = (
-    #     "You are an expert Gym and Fitness AI assistant. Your job is to answer user questions "
-    #     "accurately using ONLY the verified context provided below. If the answer cannot be "
-    #     "found in the context, politely state that you do not know."
-    #     "Do NOT add anything which is not in the infomration provided\n\n"
-    #     f"--- START CONTEXT ---\n{full_context}\n--- END CONTEXT ---"
-    # )
 
     template = prompt.template.format(context=full_context)
 
