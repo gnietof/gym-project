@@ -16,6 +16,8 @@ GPTOSS_120B = "openai/gpt-oss-120b"
 
 logger = logging.getLogger(__name__)
 
+sessions = {}
+
 
 async def score_answer(track: str, mode: str, db: any):
     usage_score = UsageScore(db)
@@ -35,10 +37,15 @@ async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_20B):
         logger.warning("Prompt not found.")
         return ""
 
-    messages = [
-        {"role": "system", "content": prompt.template},
+    messages = sessions.setdefault(
+        id,
+        [
+            {"role": "system", "content": prompt.template},
+        ],
+    )
+    messages.append(
         {"role": "user", "content": question},
-    ]
+    )
 
     loop_max = 10
     loop_count = 0

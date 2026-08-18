@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Assistant (Audit)</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/base.css"
+    />
+  </head>
+
+  <body>
+    <div id="nav-placeholder" data-tab=""welcome"></div>    
+
+    <div class="container py-1">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="card shadow-sm border-light p-1 p-sm-2 bg-white rounded-4">
+            <div class="schedule-container">
+              <table class="schedule-table">
+                <thead>
+                  <tr class="header-row">
+                    <th class ="col-time time-header"></th>
+                    <th class ="col-day">Monday</th>
+                    <th class ="col-day">Tuesday</th>
+                    <th class ="col-day">Wednesday</th>
+                    <th class ="col-day">Thursday</th>
+                    <th class ="col-day">Friday</th>
+                    <th class ="col-day">Saturday</th>
+                    <th class ="col-day">Sunday</th>
+                  </tr>
+                </thead>
+                <tbody id = "schedule">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const path = window.location.pathname; 
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const response = await fetch("/session/sessions", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const sessions = await response.json();
+        const slots = [...new Set(sessions.map(session => session.time))].sort();
+          
+        const schedule = document.getElementById("schedule")
+        slots.forEach((slot) => {
+          const slotRow = document.createElement("tr");
+          slotRow.classList.add("schedule-row");
+          slotRow.id = slot;
+          const timeCell = document.createElement("th");
+          const timeSpan = document.createElement("span");
+          timeSpan.textContent = slot.substring(0,5);
+          timeSpan.classList.add("time-badge");
+          timeCell.append(timeSpan);
+          slotRow.append(timeCell);
+          for (let i=0;i<7;i++) {
+            const dayCell = document.createElement("td");
+            dayCell.classList.add("session-group")
+            dayCell.id = `${slot}-${i}`;
+            slotRow.append(dayCell);
+          }
+          schedule.append(slotRow);
+        })
+
+        sessions.forEach((session) => {
+          const cell = document.getElementById(`${session.time}-${(session.day+6)%7}`);
+          const slot = document.createElement("div");
+          if (session["is_new"]) {
+            slot.classList.add("highlight-wrapper")
+            const inner = document.createElement("div");
+            inner.classList.add("highlight-block")
+            inner.textContent=session.activity_name;
+            slot.append(inner)
+          }else {
+            slot.classList.add("session-item")
+            slot.textContent=session.activity_name;
+          }
+          cell.append(slot);
+        });
+
+
+      });
+    </script>
+  </body>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-4.0.0.js"   integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="   crossorigin="anonymous"></script>
+  <script src="../static/js/main.js"></script>    
+</html>

@@ -1,5 +1,4 @@
 import logging
-import uuid
 
 from ai_services.gemini import count, embed
 from ai_services.groq import create
@@ -52,8 +51,7 @@ def retrieve_gym_activities(db: any, id: str, model, question: str):
     usage_track.track_create(
         model,
         "gym_activities",
-        # prompt.prompt,
-        uuid.uuid4(),
+        prompt.prompt,
         messages,
         [],
         response,

@@ -41,7 +41,6 @@ async def askAgent(payload: ChatRequestDTO, db: Session = Depends(get_db)):
     logger.debug(f"Accepting question {question} for session {id}.")
 
     answer, track = await ask_agentic(id, question, db)
-    # response = ChatResponseDTO(id=id, answer=answer, track=track)
     response = ChatResponseDTO(id=id, answer=answer, track=track)
     return response
 

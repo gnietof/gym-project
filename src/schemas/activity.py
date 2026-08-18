@@ -1,8 +1,9 @@
+import datetime
 from typing import ClassVar
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Boolean, Column, SmallInteger, String, Text, and_
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy import Boolean, Column, SmallInteger, String, Text, Time, and_
+from sqlalchemy.orm import Mapped, declarative_base, mapped_column, relationship
 
 Base = declarative_base()
 
@@ -13,8 +14,8 @@ class Category(Base):
     __tablename__: ClassVar[str] = "categories"
     __table_args__: ClassVar[dict] = {"schema": "gym"}
 
-    id = Column(SmallInteger, primary_key=True, autoincrement=True)
-    category = Column(String)
+    id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
+    category: Mapped[str] = mapped_column(String)
 
 
 class Subcategory(Base):
@@ -23,16 +24,16 @@ class Subcategory(Base):
     __tablename__: ClassVar[str] = "subcategories"
     __table_args__: ClassVar[dict] = {"schema": "gym"}
 
-    id = Column(SmallInteger, primary_key=True, autoincrement=True)
-    category = Column(SmallInteger)
-    subcategory = Column(String)
+    id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
+    category: Mapped[int] = mapped_column(SmallInteger)
+    subcategory: Mapped[str] = mapped_column(String)
 
 
 class GymLevels:
     __table_args__: ClassVar[dict] = {"schema": "gym"}
 
-    value = Column(SmallInteger, primary_key=True)
-    description = Column(String)
+    value: Mapped[int] = mapped_column(SmallInteger, primary_key=True)
+    description: Mapped[str] = mapped_column(String)
 
 
 class Intensity(GymLevels, Base):
@@ -65,18 +66,18 @@ class Activity(Base):
     __tablename__: ClassVar[str] = "activities"
     __table_args__: ClassVar[dict] = {"schema": "gym"}
 
-    id = Column(SmallInteger, primary_key=True, autoincrement=True)
-    activity_code = Column(String)
-    activity_name = Column(String)
+    id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
+    activity_code: Mapped[str] = mapped_column(String)
+    activity_name: Mapped[str] = mapped_column(String)
 
-    category = Column(SmallInteger)
+    category: Mapped[int] = mapped_column(SmallInteger)
     category_name = relationship(
         "Category",
         primaryjoin=category == Category.id,
         foreign_keys=[category],
     )
 
-    subcategory = Column(SmallInteger)
+    subcategory: Mapped[int] = mapped_column(SmallInteger)
     subcategory_name = relationship(
         "Subcategory",
         primaryjoin=and_(
@@ -85,38 +86,56 @@ class Activity(Base):
         foreign_keys="[Activity.subcategory]",
     )
 
-    intensity_level = Column(SmallInteger)
-    intensity_level_name = relationship(
+    intensity_level: Mapped[int] = mapped_column(SmallInteger)
+    intensity_map: Mapped[Intensity] = relationship(
         "Intensity",
         primaryjoin=intensity_level == Intensity.value,
         foreign_keys="[Activity.intensity_level]",
     )
 
-    weights_used = Column(Boolean)
+    weights_used: Mapped[bool] = mapped_column(Boolean)
 
-    skill_level = Column(SmallInteger)
-    skill_level_name = relationship(
+    skill_level: Mapped[int] = mapped_column(SmallInteger)
+    skill_map: Mapped[Skill] = relationship(
         "Skill",
         primaryjoin=skill_level == Skill.value,
         foreign_keys="[Activity.skill_level]",
     )
 
-    impact_level = Column(SmallInteger)
-    impact_level_name = relationship(
+    impact_level: Mapped[int] = mapped_column(SmallInteger)
+    impact_map: Mapped[Impact] = relationship(
         "Impact",
         primaryjoin=impact_level == Impact.value,
         foreign_keys="[Activity.impact_level]",
     )
 
-    caloric_burn = Column(SmallInteger)
-    caloric_burn_name = relationship(
+    caloric_burn: Mapped[int] = mapped_column(SmallInteger)
+    caloric_burn_map: Mapped[CaloricBurn] = relationship(
         "CaloricBurn",
         primaryjoin=caloric_burn == CaloricBurn.value,
         foreign_keys="[Activity.caloric_burn]",
     )
 
+    is_new: Mapped[bool] = mapped_column(Boolean)
+
     full_description = Column(Text)
     embedding = Column(Vector(1536))
 
 
-Base = declarative_base()
+class Session(Base):
+    """Represents the description of a gym activity"""
+
+    __tablename__: ClassVar[str] = "sessions"
+    __table_args__: ClassVar[dict] = {"schema": "gym"}
+
+    id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
+    activity_code: Mapped[str] = mapped_column(String)
+    activity_map: Mapped[Activity] = relationship(
+        "Activity",
+        primaryjoin=activity_code == Activity.activity_code,
+        foreign_keys="[Session.activity_code]",
+    )
+
+    time: Mapped[datetime.time] = mapped_column(Time(timezone=False))
+    day: Mapped[int] = mapped_column(SmallInteger)
+    duration: Mapped[int] = mapped_column(SmallInteger)

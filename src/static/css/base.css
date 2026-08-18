@@ -61,7 +61,7 @@ body {
   flex-direction: column;
   gap: 10px; /* Space between message bubbles */
   padding: 15px;
-  background-color: #efeae2; /* WhatsApp background look */
+  background-color: #efeae2;
 }
 
 .message {
@@ -153,4 +153,96 @@ pre.small {
 
 .vote-btn:active {
   transform: scale(0.85);
+}
+
+.schedule-container {
+  background-color: #efeae2;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #efeae2;
+}
+
+.header-row th {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f27d00;
+  text-align: left;
+  padding-bottom: 25px;
+}
+
+.schedule-row {
+  border-bottom: 2px solid #f27d00;
+}
+
+.schedule-row th {
+  padding: 4px 10px;
+  vertical-align: middle;
+}
+
+.schedule-time {
+  vertical-align: middle;
+}
+
+.session-group {
+  /* display: flex;
+  flex-direction: column; */
+  gap: 6px;
+  padding-right: 15px;
+}
+
+.session-group > *:not(:last-child) {
+  border-bottom: 1px solid #f27d00;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.session-item {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.highlight-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.highlight-block {
+  background-color: #f27d00;
+  color: #eaddd3;
+  padding: 4px 12px;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.time-badge {
+  display: inline-block;
+  border: 2px solid #f27d00;
+  color: #f27d00;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 4px 4px;
+  border-radius: 20px;
+  background-color: transparent;
+  text-align: center;
+}
+
+.col-time {
+  width: 9%;
+}
+.col-day {
+  width: 13%;
 }

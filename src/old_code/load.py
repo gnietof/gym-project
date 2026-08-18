@@ -213,7 +213,40 @@ def update_sessions(path: str, connection: any):
         cursor = connection.cursor()
         cursor.executemany(query, records)
         connection.commit()
-        print(f"Successfully update {len(records)} records.")
+        print(f"Successfully updated {len(records)} records.")
+
+    except psycopg2.ProgrammingError as e:
+        print(f"Database error: {e}")
+
+    except psycopg2.Error as e:
+        print(f"Database error: {e}")
+
+
+def new_activities(path: str, connection: any):
+    if not connection:
+        print("No DB connection provided!")
+        return
+
+    with open(path, "r", encoding="utf-8") as file:
+        activities = json.load(file)
+
+    records = []
+    for activity in activities:
+        records.append(
+            ("TRUE" if activity["new"] else "FALSE", activity["code"].upper())
+        )
+
+    try:
+        query = """
+          UPDATE GYM.ACTIVITIES 
+          SET IS_NEW = %s
+          WHERE ACTIVITY_CODE = %s;
+        """
+
+        cursor = connection.cursor()
+        cursor.executemany(query, records)
+        connection.commit()
+        print(f"Successfully updated {len(records)} records.")
 
     except psycopg2.ProgrammingError as e:
         print(f"Database error: {e}")
@@ -226,5 +259,7 @@ load_dotenv()
 connection = connect_database()
 # insert_activities("resources/GymActivities.json", connection)
 # update_activities("resources/activities.json", connection)
-insert_sessions("resources/sessions.json", connection)
-update_sessions("resources/activities.json", connection)
+# insert_sessions("resources/sessions.json", connection)
+# update_sessions("resources/activities.json", connection)
+
+new_activities("resources/activities.json", connection)

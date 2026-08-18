@@ -1,7 +1,7 @@
 from typing import ClassVar
 
 from sqlalchemy import Column, SmallInteger, String
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import Mapped, declarative_base, mapped_column
 
 Base = declarative_base()
 
@@ -33,5 +33,5 @@ class Intensity(Base):
     __tablename__: ClassVar[str] = "intensity_levels"
     __table_args__: ClassVar[dict] = {"schema": "gym"}
 
-    value = Column(SmallInteger, primary_key=True)
-    description = Column(String)
+    value: Mapped[int] = mapped_column(SmallInteger, primary_key=True)
+    description: Mapped[str] = mapped_column(String)

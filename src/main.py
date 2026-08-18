@@ -14,9 +14,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from config_log import setup_logging
-from routes.activity_routes import router as api_router
+from routes.activity_routes import router as activity_router
 from routes.chat_routes import router as chat_router
 from routes.prompt_routes import router as prompt_router
+from routes.session_routes import router as session_router
 from routes.usage_routes import router as usage_router
 
 setup_logging()
@@ -56,7 +57,8 @@ def serve_any_page(request: Request, page_name: str):
 
 
 app.include_router(chat_router, prefix="/chat")
-app.include_router(api_router, prefix="/api")
+app.include_router(activity_router, prefix="/activity")
+app.include_router(session_router, prefix="/session")
 app.include_router(usage_router, prefix="/usage")
 app.include_router(prompt_router, prefix="/prompt")
 app.add_middleware(
