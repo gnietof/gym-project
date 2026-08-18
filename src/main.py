@@ -14,8 +14,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from config_log import setup_logging
+from routes.activity_routes import router as api_router
 from routes.chat_routes import router as chat_router
-from routes.filter_routes import router as api_router
 from routes.prompt_routes import router as prompt_router
 from routes.usage_routes import router as usage_router
 

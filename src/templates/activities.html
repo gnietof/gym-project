@@ -24,7 +24,7 @@
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
-        const response = await fetch("/prompt/prompts", {
+        const response = await fetch("/api/activities", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -32,15 +32,18 @@
         });
 
         columns = [
-          { field: 'timestamp', label: 'Time'},
-          { field: 'tag', label: 'Tag'},
-          { field: 'active', label: 'Active'},
-          { field: 'template', label: 'Template'}
+          { field: "activity_name", label: "Name" },
+          { field: "category", label: "Category" },
+          { field: "subcategory", label: "Subcategory" },
+          { field: "intensity_level", label: "Intensity" },
+          { field: "weights_used", label: "Weights" },
+          { field: "skill_level", label: "Skill" },
+          { field: "impact_level", label: "Impact" },
+          { field: "caloric_burn", label: "Caloric" },
         ]
 
         const data = await response.json();
         create_table("placeholder",columns,data);
-
       });
 
     </script>

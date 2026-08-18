@@ -1,10 +1,12 @@
 from typing import Any
 
+from repository.activity_repo import get_all_activities
 from repository.filter_repo import (
     get_all_categories,
     get_all_intensities,
     get_all_subcategories,
 )
+from schemas.activity import Activity
 
 
 def get_categories_service(db: any) -> list[Any]:
@@ -20,3 +22,8 @@ def get_subcategories_service(db: any, category: str) -> list[Any]:
 def get_intensities_service(db: any) -> list[Any]:
     records = get_all_intensities(db)
     return records
+
+
+def get_activities_service(db: any) -> list[Activity]:
+    activities = get_all_activities(db)
+    return activities
