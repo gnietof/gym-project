@@ -267,7 +267,7 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 
 ## Future Improvements
 ### Priority
-- Splitting the current gym.activities tables into two tables: one for the metadata and another one for the embeddings.
+- Splitting the current gym.activities table into two tables: one for the metadata and another one for the embeddings.
 - Adding 'memory'. While the application generates a session id, each question has no previous context. By storing previous messages in a conversation more complex interactions will be possible (already included in branch V2.0 not part of this submission).
 - Using additional fields for each activity (intensity, difficulty, use of weights ...) to further refine the search of the activities. 
 - Adding roles. Currently the tool is just prepared for a single user. The administrative views should not be available for an end user.
