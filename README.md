@@ -68,12 +68,44 @@ The Postgres database includes several tables:
 
 Additional tables have been included (categories, subcategories, intensity, ...) for future use.
 
+## Cloud Deployment
+
+The application has been deployed in the Cloud using Render free tier. 
+In this case, instead of using two different containers, the database has been deployed in a Postgres instance managed by Render. The FastAPI application has been deployed using a Web Container. 
+The application is available at [https://gym-project-d84g.onrender.com/index](https://gym-project-d84g.onrender.com/index).
+
+<img width="991" height="282" alt="image" src="https://github.com/user-attachments/assets/a7195c4d-70c4-448a-97cf-4063016a6789" />
+
+**Note**: Because the 'free tier' in Render is being used, the container running the FastAPI application is stopped after 15 minutes of inactivity. So, when you first access the application, it might take up to 50" to get the application up&running.
+
+A slightly modified Dockerfile has been created for deploying the application in Render. Docker compose is not required. Below you can find the new Dockerfile.  
+```dockerfile
+FROM python:3.11-slim
+
+WORKDIR /code
+
+RUN apt-get update && apt-get install -y git openssh-client && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . . 
+
+ENV PYTHONPATH=/code/src
+
+EXPOSE 8000
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+Once the Postgtres instance has been created, a LLM schema is required. The postgres database has also been fed with a backup from the local database so that all required tables are included.
+The environment variables (Postgres connection and LLM services) must also be provided in the Render container configuration.
+
 ## Evaluation
 
 ### Retrieval Evaluation
 
 A collection of ~50 questions where generated for different activities. Semantic search has been used. Keyword search provided poor results because of the many similar words used in each description.
-Using semantic search for this set of questions the hit rate was 74%. Although 'wrong' answers are not really wrong. 
+Using semantic search for this set of questions the hit rate was 74%. Although 'wrong' answers are not really wrong. They just found another similar activity. And that is why keyword search does not work properly and was discarded. 
 
 <details>
 <summary>Output detail</summary>
@@ -229,7 +261,7 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 | Document reranking | Not used because semantic search and SQL search are combined by the agent itself. |
 | Query rewriting | Evaluated but not included. |
 | Extra evidence | A [demo](#demo) section has been added. This section includes a short video which displays several type of questions involving the use one or both tools (and one or both search methods) and also a few screenshots. | 
-| Cloud deployment bonus | ** Work in progress ** |
+| Cloud deployment bonus | The application has been deployed in Render as explained [here](#cloud-deployment) |
 
 ## Future Improvements
 ### Priority
