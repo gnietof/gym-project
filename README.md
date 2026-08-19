@@ -253,7 +253,7 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 | Retrieval evaluation | Semantic retrieval evaluation is included [here](#retrieval-evaluation). |
 | LLM evaluation | Different LLM's where used to evaluate the responses to a collection of questions. The evaluation is included [here](#rag-evaluation) and the details are in [this folder](evaluations). |
 | Interface | A web interface has been included using Javascript (front-end) and Python (back-end) which includes user interface and monitoring. |
-| Ingestion pipeline | A Python script was using to [ingest the JSON files](src/old_code/load.py) into the database. Another Python script was used to [generate the embeddings](src/old_code/embed.py) for each of the documents and store them in the Postgres database. |
+| Ingestion pipeline | A Python script was used to [ingest the JSON files](src/old_code/load.py) into the database. Another Python script was used to [generate the embeddings](src/old_code/embed.py) for each of the documents and store them in the Postgres database. |
 | Monitoring | Each interaction with the tool collects information. Several views are included to monitor each of the LLM requests or display token usage and evaluations. Screenshots have been included in [Monitoring](#monitoring). |
 | Containerization | The solution has been containerized using two containers. One for FastAPI and one for Postgres. The [Dockerfile](Dockerfile) for FastAPI and the [docker-compose.yml](docker-compose.yml) have been included in the repository. The repository also includes a database backup which is automatically restored in the database when the Postgres container is first launched. |
 | Reproducibility | All the required data and code are provided and instructions have been included. The folder [resources](resources) contains all the data used for this project in JSON format. |
@@ -267,7 +267,8 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 
 ## Future Improvements
 ### Priority
-- Adding 'memory'. While the application generates a session id, each question has no previous context. By storing previous messages in a conversation more complex interactions will be possible.
+- Splitting the current gym.activities tables into two tables: one for the metadata and another one for the embeddings.
+- Adding 'memory'. While the application generates a session id, each question has no previous context. By storing previous messages in a conversation more complex interactions will be possible (already included in branch V2.0 not part of this submission).
 - Using additional fields for each activity (intensity, difficulty, use of weights ...) to further refine the search of the activities. 
 - Adding roles. Currently the tool is just prepared for a single user. The administrative views should not be available for an end user.
 - Adding Grafana. The application collects information about each request received by the user: timestamp, prompt, model, response, how many tokens where consumed ... This information is stored in a database and displayed using simple charts. Adding Grafana would improve data visualisation.
