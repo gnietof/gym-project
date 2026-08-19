@@ -261,7 +261,9 @@ The tool is prepared to manage the prompts so they can be audited later. This pa
 | Document reranking | Not used because semantic search and SQL search are combined by the agent itself. |
 | Query rewriting | Evaluated but not included. |
 | Extra evidence | A [demo](#demo) section has been added. This section includes a short video which displays several type of questions involving the use one or both tools (and one or both search methods) and also a few screenshots. | 
-| Cloud deployment bonus | The application has been deployed in Render as explained [here](#cloud-deployment) |
+| Bonus points | **Cloud deployment**. The application has been deployed in Render as explained [here](#cloud-deployment).
+| | **AI Agent**. Although the course did not cover that, an AI Agent has been created which uses two different tools for answering different types of questions.
+| | **Prompt management**. Prompt management (work in progress) has been included for auditability on how the different prompts are affecting the responses being generated. |
 
 ## Future Improvements
 ### Priority
