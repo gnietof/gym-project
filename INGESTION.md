@@ -10,7 +10,7 @@ Initially, all the information about the activities was stored in one single tab
 In V2.0, the activities table only keeps information about the activities (including some fields which initially where only present in the full_activity column.
 The 'full_activity' and the embedding columns have been moved to a different table.
 
-## Plan for V2.1
+### Plan for V2.1
 The 'usages' table keeps track of all the information sent to the LLM's. This table includes lots of information. It also includes the scores being provided by the users to each of the AI assistant responses and the number of tokens used in each request.
 In V2.1 the scores and the tokens will also be moved to different tables. While the 'usages' is basically a log, 'scores' and 'token' are used to build the dashboards so they will be accessed more frequently. This separation will improve performance.
 
