@@ -9,12 +9,14 @@ from common.db.database import engine
 
 Base = declarative_base()
 
+SCHEMA = "llm2"
+
 
 class Prompt(Base):
     """Models a prompt which will be used for sending questions to the LLM"""
 
     __tablename__: ClassVar[str] = "prompts"
-    __table_args__: ClassVar[dict] = {"schema": "llm"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
 

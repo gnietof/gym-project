@@ -60,7 +60,7 @@ def rag_evaluation(model=LLAMA31_8B):
 
         with SessionLocal() as db:
             descriptions = vector_search(db, query_vector)
-        context = [description.full_description for description in descriptions]
+        context = [description.content for description in descriptions]
         full_context = "\n\n---\n\n".join(context)
 
         prompt = get_prompt_by_tag(db, "gym_activities_create")

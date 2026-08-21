@@ -2,17 +2,19 @@ import datetime
 from typing import ClassVar
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Boolean, Column, SmallInteger, String, Text, Time, and_
+from sqlalchemy import Boolean, SmallInteger, String, Text, Time, and_
 from sqlalchemy.orm import Mapped, declarative_base, mapped_column, relationship
 
 Base = declarative_base()
+
+SCHEMA = "gym2"
 
 
 class Category(Base):
     """Represents the description of a gym activity category"""
 
     __tablename__: ClassVar[str] = "categories"
-    __table_args__: ClassVar[dict] = {"schema": "gym"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
     id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
     category: Mapped[str] = mapped_column(String)
@@ -22,7 +24,7 @@ class Subcategory(Base):
     """Represents the description of a gym activity subcategory"""
 
     __tablename__: ClassVar[str] = "subcategories"
-    __table_args__: ClassVar[dict] = {"schema": "gym"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
     id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
     category: Mapped[int] = mapped_column(SmallInteger)
@@ -30,7 +32,7 @@ class Subcategory(Base):
 
 
 class GymLevels:
-    __table_args__: ClassVar[dict] = {"schema": "gym"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
     value: Mapped[int] = mapped_column(SmallInteger, primary_key=True)
     description: Mapped[str] = mapped_column(String)
@@ -64,10 +66,11 @@ class Activity(Base):
     """Represents the description of a gym activity"""
 
     __tablename__: ClassVar[str] = "activities"
-    __table_args__: ClassVar[dict] = {"schema": "gym"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
-    id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
-    activity_code: Mapped[str] = mapped_column(String)
+    # id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
+    # id: Mapped[int] = mapped_column(SmallInteger)
+    activity_code: Mapped[str] = mapped_column(String, primary_key=True)
     activity_name: Mapped[str] = mapped_column(String)
 
     category: Mapped[int] = mapped_column(SmallInteger)
@@ -118,15 +121,34 @@ class Activity(Base):
 
     is_new: Mapped[bool] = mapped_column(Boolean)
 
-    full_description = Column(Text)
-    embedding = Column(Vector(1536))
+    description: Mapped[str] = mapped_column(Text)
+    primary_benefit: Mapped[str] = mapped_column(Text)
+    contraindications: Mapped[str] = mapped_column(Text)
+    interesting_fact: Mapped[str] = mapped_column(Text)
+
+    # full_description = Column(Text)
+    # embedding = Column(Vector(1536))
+
+
+class Embedding(Base):
+    """Represents the embedding of a gym activity"""
+
+    __tablename__: ClassVar[str] = "embeddings"
+    __table_args__: ClassVar[dict] = {"schema": "gym2"}
+
+    # id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
+    activity_code: Mapped[str] = mapped_column(String, primary_key=True)
+    activity_name: Mapped[str] = mapped_column(String)
+
+    content: Mapped[str] = mapped_column(Text)
+    embedding: Mapped[list[float]] = mapped_column(Vector(1536))
 
 
 class Session(Base):
     """Represents the description of a gym activity"""
 
     __tablename__: ClassVar[str] = "sessions"
-    __table_args__: ClassVar[dict] = {"schema": "gym"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
     id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
     activity_code: Mapped[str] = mapped_column(String)

@@ -34,7 +34,7 @@ def retrieve_gym_activities(db: any, id: str, model, question: str):
         return "Sorry, could not find matching context for that question."
 
     # Build context with retrieved documents
-    context = [description.full_description for description in descriptions]
+    context = [description.content for description in descriptions]
     full_context = "\n\n---\n\n".join(context)
 
     prompt = get_prompt_by_tag(db, "gym_activities_create")

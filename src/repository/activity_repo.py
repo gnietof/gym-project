@@ -4,6 +4,7 @@ from schemas.activity import (
     Activity,
     CaloricBurn,
     Category,
+    Embedding,
     Impact,
     Intensity,
     Skill,
@@ -37,11 +38,11 @@ def get_all_activities(db: any) -> list[Activity]:
     return activities
 
 
-def vector_search(db: any, query_vector: list[float], limit=5) -> list[Activity]:
+def vector_search(db: any, query_vector: list[float], limit=5) -> list[Embedding]:
 
     query = (
-        select(Activity)
-        .order_by(Activity.embedding.cosine_distance(query_vector))
+        select(Embedding)
+        .order_by(Embedding.embedding.cosine_distance(query_vector))
         .limit(limit)
     )
 
