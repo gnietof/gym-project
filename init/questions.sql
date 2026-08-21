@@ -1,3 +1,10 @@
+DROP TABLE IF EXISTS GYM.QUESTIONS;
+CREATE TABLE GYM.QUESTIONS (
+  ID SMALLINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  ACTIVITY_NAME TEXT,
+  QUESTION TEXT
+);
+
 INSERT INTO GYM.QUESTIONS(ACTIVITY_NAME,QUESTION) VALUES
 ('Antigravity Yoga','Which activity involves performing advanced stretching and inversions without compressing the spine or putting pressure on the joints?'),
 ('Antigravity Yoga','Which activity is contraindicated for individuals with high blood pressure due to frequent inverted positions?'),

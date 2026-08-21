@@ -7,7 +7,7 @@ from sqlalchemy.orm import Mapped, declarative_base, mapped_column, relationship
 
 Base = declarative_base()
 
-SCHEMA = "gym2"
+SCHEMA = "gym"
 
 
 class Category(Base):

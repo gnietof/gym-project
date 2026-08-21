@@ -10,7 +10,7 @@ from common.db.database import engine
 
 Base = declarative_base()
 
-SCHEMA = "log2"
+SCHEMA = "log"
 
 
 class Usage(Base):
@@ -53,7 +53,7 @@ class Usage(Base):
 
 @event.listens_for(Base.metadata, "before_create")
 def receive_before_create(target, connection, **kw):
-    connection.execute(text("CREATE SCHEMA IF NOT EXISTS log"))
+    connection.execute(text(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}"))
 
 
 Base.metadata.create_all(engine)

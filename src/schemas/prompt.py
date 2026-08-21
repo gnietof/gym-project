@@ -9,7 +9,7 @@ from common.db.database import engine
 
 Base = declarative_base()
 
-SCHEMA = "llm2"
+SCHEMA = "llm"
 
 
 class Prompt(Base):
@@ -18,10 +18,13 @@ class Prompt(Base):
     __tablename__: ClassVar[str] = "prompts"
     __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    # id: Mapped[int] = mapped_column(Integer, primary_key=True)
 
     prompt: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), unique=True, server_default=text("gen_random_uuid()")
+        UUID(as_uuid=True),
+        unique=True,
+        primary_key=True,
+        server_default=text("gen_random_uuid()"),
     )
 
     template: Mapped[str] = mapped_column(String)
