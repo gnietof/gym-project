@@ -47,7 +47,7 @@ Finally there is a table which keeps a record of all the requests being sent to 
 
 ## Initial Load
 
-All the information comes initially from three JSON files:
+All the information comes initially from three JSON files (all of them in [resources/](resources/).
 
 | File | Description |
 | - | - |
