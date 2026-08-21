@@ -73,14 +73,14 @@ Tables tmp_descriptions and tmp_activities are related by the activity_name.
 3. For intensity, impact, skills and caloric burns table contents are generated using [init.sql](init/init.sql). Each of the values found in GymActivities have been included.
 Category and subcategories tables are filled with unique values in the tmp_descriptions using the same SQL script.
 4. The final activities table is filled using the information from tmp_descriptions using [fill.sql](init/fill.sql).  
-4.1. Activities
+a) Activities
   - Each category and subcategory is converted into a code (matching the related tables).
   - Each intensity, impact, skill and caloric burn is converted into a code (matching the related tables).
-  - An activity_code is added from the tmp_activities table.
-4.2. Embeddings
-The embeddings table is also created in this step using information from the description of each activity. Several columns are merged into a 'description'.
-4.3. Sessions
-The sessions table is filled with the code of the activity, dow (sunday to saturday), day (sunday = 0 to saturday = 6), the start time and the duration.
+  - An activity_code is added from the tmp_activities table.  
+b) Embeddings
+The embeddings table is also created in this step using information from the description of each activity. Several columns are merged into a 'description'.  
+c) Sessions
+The sessions table is filled with the code of the activity, dow (sunday to saturday), day (sunday = 0 to saturday = 6), the start time and the duration.  
 5. The embeddings which was created in a previous step is now being added the embeddings for each of the generated 'descrptions'. 
 The Python script is used to loop through each description and obtaining the embeddings.
 6. The prompts are added to the database. These is a collection of default prompts which are required for each tool and the agent itself. The SQL script in [prompts.sql](init/prompts.sql) is executed.
