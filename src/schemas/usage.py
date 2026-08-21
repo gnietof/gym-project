@@ -10,12 +10,14 @@ from common.db.database import engine
 
 Base = declarative_base()
 
+SCHEMA = "log2"
+
 
 class Usage(Base):
     """Models the information stored in the database to track LLM's usage"""
 
     __tablename__: ClassVar[str] = "usages"
-    __table_args__: ClassVar[dict] = {"schema": "log"}
+    __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     provider: Mapped[str] = mapped_column(String(50), nullable=False)
