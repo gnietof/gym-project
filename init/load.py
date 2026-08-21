@@ -255,6 +255,6 @@ connection.initialize(logger)
 # # 5. Embeddings are being added to the embeddings table
 # generate_emebddings()
 # # 6. Add basic prompts
-# execute_sql(connection, "init/prompts.sql")
+execute_sql(connection, "init/prompts.sql")
 # 7. Add test questions
-execute_sql(connection, "init/questions.sql")
+# execute_sql(connection, "init/questions.sql")

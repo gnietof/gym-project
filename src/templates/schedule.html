@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gym Assistant (Audit)</title>
+    <title>Gym Assistant (Schedule)</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -83,17 +83,27 @@
         sessions.forEach((session) => {
           const cell = document.getElementById(`${session.time}-${(session.day+6)%7}`);
           const slot = document.createElement("div");
-          if (session["is_new"]) {
+          const inner = document.createElement("div");
+          const span = document.createElement("span");
+          inner.append(span);
+          slot.append(inner);
+          cell.append(slot);
+          if (session["is_new"]=="Yes") {
             slot.classList.add("highlight-wrapper")
-            const inner = document.createElement("div");
             inner.classList.add("highlight-block")
             inner.textContent=session.activity_name;
             slot.append(inner)
           }else {
             slot.classList.add("session-item")
-            slot.textContent=session.activity_name;
+            span.textContent=session.activity_name;
           }
-          cell.append(slot);
+          if (session["weights_used"]=="Yes") {
+          // if (true) {
+            const i = document.createElement("i");
+            i.style = "font-size: 1rem; margin-right: 5px;";
+            i.textContent="🏋️"
+            inner.append(i);
+          }
         });
 
 

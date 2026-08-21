@@ -33,6 +33,7 @@ INSERT INTO LLM.PROMPTS(TEMPLATE,TIMESTAMP,ACTIVE,TAG) VALUES(
   - TIME (TIME): Scheduled time in HH:MM 24-hour format (e.g., 18:30).
   - DOW (VARCHAR): Day of the week in lower case (e.g., monday, tuesday ...). 
   - DURATION (INT): Duration of the activity in minutes.
+  - WEIGHTS (BOOL): Where weights are used(t) or not (f).
 
   EXAMPLE OUPUT:
   SELECT ACTIVITY_NAME, DOW, TIME, DURATION FROM GYM.VW_SESSIONS WHERE LOWER(ACTIVITY_NAME) LIKE ''%yoga%'''

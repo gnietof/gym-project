@@ -85,6 +85,7 @@ SELECT
     CONCAT('##Category: ',C.CATEGORY),
     CONCAT('##Subcategory: ',S.SUBCATEGORY),
     CONCAT('##Description: ',D.DESCRIPTION),
+    CONCAT('##Weights used: ',CASE WHEN D.WEIGHTS_USED = TRUE THEN 'Yes' ELSE 'No' END),
     CONCAT('##Primary benefit: ',D.PRIMARY_BENEFIT),
     CONCAT('##Contraindications: ',D.CONTRAINDICATIONS),
     CONCAT('##Interesting fact: ',D.INTERESTING_FACT),

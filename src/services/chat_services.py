@@ -31,7 +31,7 @@ async def ask_agentic(id: str, question: str, db: any, model=GPTOSS_20B):
 
     usage_track = UsageTrack(db, id)
 
-    prompt = get_prompt_by_tag(db, "gym_assistant")
+    prompt = get_prompt_by_tag(db, "gym_agent")
 
     if not prompt:
         logger.warning("Prompt not found.")

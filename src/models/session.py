@@ -12,4 +12,5 @@ class SessionDTO(SQLModel):
     duration: int
     day: int
 
-    is_new: bool
+    is_new: str
+    weights_used: str

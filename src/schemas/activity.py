@@ -68,8 +68,6 @@ class Activity(Base):
     __tablename__: ClassVar[str] = "activities"
     __table_args__: ClassVar[dict] = {"schema": SCHEMA}
 
-    # id: Mapped[int] = mapped_column(SmallInteger, primary_key=True, autoincrement=True)
-    # id: Mapped[int] = mapped_column(SmallInteger)
     activity_code: Mapped[str] = mapped_column(String, primary_key=True)
     activity_name: Mapped[str] = mapped_column(String)
 
@@ -125,9 +123,6 @@ class Activity(Base):
     primary_benefit: Mapped[str] = mapped_column(Text)
     contraindications: Mapped[str] = mapped_column(Text)
     interesting_fact: Mapped[str] = mapped_column(Text)
-
-    # full_description = Column(Text)
-    # embedding = Column(Vector(1536))
 
 
 class Embedding(Base):

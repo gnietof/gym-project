@@ -1,9 +1,6 @@
-from sqlalchemy import select
+from sqlalchemy import case, select
 
-from schemas.activity import (
-    Activity,
-    Session,
-)
+from schemas.activity import Activity, Session
 
 
 def get_all_sessions(db: any) -> list[Session]:
@@ -12,21 +9,9 @@ def get_all_sessions(db: any) -> list[Session]:
         Session.duration,
         Session.day,
         Activity.activity_name,
-        Activity.is_new,
+        case((Activity.is_new == True, "Yes"), else_="No").label("is_new"),
+        case((Activity.weights_used == True, "Yes"), else_="No").label("weights_used"),
     ).join(Activity, Session.activity_map)
     sessions = db.execute(query).all()
 
     return sessions
-
-
-def vector_search(db: any, query_vector: list[float], limit=5) -> list[Activity]:
-
-    query = (
-        select(Activity)
-        .order_by(Activity.embedding.cosine_distance(query_vector))
-        .limit(limit)
-    )
-
-    closest = db.scalars(query).all()
-
-    return closest
