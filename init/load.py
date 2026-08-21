@@ -78,7 +78,7 @@ def insert_descriptions(connection: PgConnection, path: str):
 
     try:
         query = """
-          INSERT INTO GYM2.TMP_DESCRIPTIONS(ACTIVITY_NAME,CATEGORY,SUB_CATEGORY,
+          INSERT INTO GYM.TMP_DESCRIPTIONS(ACTIVITY_NAME,CATEGORY,SUB_CATEGORY,
           DESCRIPTION,INTENSITY_LEVEL,TARGET_AGE_GROUP,WEIGHTS_USED,
           PRIMARY_BENEFIT,SKILL_LEVEL,IMPACT_LEVEL,SOCIAL_DYNAMIC,
           CALORIC_BURN,MENTAL_FOCUS,CONTRAINDICATIONS,INTERESTING_FACT)
@@ -121,10 +121,10 @@ def insert_activities(connection: PgConnection, path: str):
 
     try:
         delete = """
-          TRUNCATE GYM2.TMP_ACTIVITIES
+          TRUNCATE GYM.TMP_ACTIVITIES
         """
         insert = """
-          INSERT INTO GYM2.TMP_ACTIVITIES(CODE,NAME,DURATION,NEW)
+          INSERT INTO GYM.TMP_ACTIVITIES(CODE,NAME,DURATION,NEW)
           VALUES %s;
         """
         cursor = connection.cursor()
@@ -164,10 +164,10 @@ def insert_sessions(connection: PgConnection, path: str):
 
     try:
         delete = """
-          TRUNCATE GYM2.TMP_SESSIONS
+          TRUNCATE GYM.TMP_SESSIONS
         """
         insert = """
-          INSERT INTO GYM2.TMP_SESSIONS(TIME,DAY,CODE)
+          INSERT INTO GYM.TMP_SESSIONS(TIME,DAY,CODE)
           VALUES %s;
         """
         cursor = connection.cursor()
@@ -238,19 +238,23 @@ connection = connect_database()
 connection.initialize(logger)
 
 # # CAUTION: This script deletes all tables.
-execute_sql(connection, "init/clean.sql")
+# --->execute_sql(connection, "init/clean.sql")
 
-# 1. Create the required tables
-execute_sql(connection, "init/create.sql")
-# 2.1 Ingest all the description for all the activities in a temporary table
-insert_descriptions(connection, "resources/GymActivities.json")
-# 2.2 Ingest all the activities details in this gym
-insert_activities(connection, "resources/activities.json")
-# 2.3 Ingest all the session details in this gym
-insert_sessions(connection, "resources/sessions.json")
-# 3. Initialize the contents of the auxiliary tables
-execute_sql(connection, "init/init.sql")
-# 4. Initialize the contents of the auxiliary tables
-execute_sql(connection, "init/fill.sql")
+# # 1. Create the required tables
+# execute_sql(connection, "init/create.sql")
+# # 2.1 Ingest all the description for all the activities in a temporary table
+# insert_descriptions(connection, "resources/GymActivities.json")
+# # 2.2 Ingest all the activities details in this gym
+# insert_activities(connection, "resources/activities.json")
+# # 2.3 Ingest all the session details in this gym
+# insert_sessions(connection, "resources/sessions.json")
+# # 3. Initialize the contents of the auxiliary tables
+# execute_sql(connection, "init/init.sql")
+# # 4. Initialize the contents of the auxiliary tables
+# execute_sql(connection, "init/fill.sql")
 # # 5. Embeddings are being added to the embeddings table
 # generate_emebddings()
+# # 6. Add basic prompts
+# execute_sql(connection, "init/prompts.sql")
+# 7. Add test questions
+execute_sql(connection, "init/questions.sql")
