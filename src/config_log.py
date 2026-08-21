@@ -3,7 +3,7 @@ import sys
 from logging.handlers import RotatingFileHandler
 
 
-def setup_logging():
+def setup_logging(level=logging.INFO):
 
     log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
@@ -15,5 +15,5 @@ def setup_logging():
 
     # Configure the root logger to output to the console
     logging.basicConfig(
-        level=logging.INFO, format=log_format, handlers=[console_handler, file_handler]
+        level=level, format=log_format, handlers=[console_handler, file_handler]
     )
